@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Algorithms;
 using Spine.Unity;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+
+using Point = System.Drawing.Point;
 
 public class FigureController : MonoBehaviour
 {
