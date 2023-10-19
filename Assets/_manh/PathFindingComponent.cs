@@ -1,42 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using Algorithms;
+using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.Events;
 using Point = System.Drawing.Point;
 
-public class PathFinding2D : MonoBehaviour
+public class PathFindingComponent : MonoBehaviour
 {
-    [SerializeField] byte[,] grid;
+    [SerializeField] int searchPerFixedUpdate;
     IPathFinder pathFinder;
     List<PathFinderNode> pathFindingResult = new();
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         pathFinder = new PathFinder();
+    }
 
-        grid = new byte[,] {
-            { 1, 1, 1, 1},
-            { 1, 1, 1, 1},
-            { 1, 1, 10, 1},
-            { 1, 1, 1, 1}
-        };
-
-        StartCoroutine(FindPath());
-
+    public PathFinderNode[] GetGenerateResult()
+    {
+        return pathFindingResult.ToArray();
     }
 
     // Update is called once per frame
-    IEnumerator FindPath()
+    public IEnumerator GeneratePath(byte[,] grid, Vector2Int start, Vector2Int end)
     {
         pathFindingResult.Clear();
-        yield return pathFinder.FindPath(new Point(0, 0), new Point(3, 3), grid, pathFindingResult);
-
-        //foreach(var node in pathFindingResult)
-        //{
-        //    Debug.Log(node.X + " " + node.Y);
-        //}
+        yield return pathFinder.FindPath(
+            new Point(start.x, start.y), 
+            new Point(end.x, end.y), 
+            grid, pathFindingResult,
+            searchPerFixedUpdate);
     }
 }

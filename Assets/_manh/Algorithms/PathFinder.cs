@@ -165,6 +165,8 @@ namespace Algorithms
             get { return mDebugFoundPath; }
             set { mDebugFoundPath = value; }
         }
+
+        public int SearchPerFixedUpdate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         #endregion
 
         #region Methods

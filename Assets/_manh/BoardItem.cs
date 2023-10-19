@@ -13,4 +13,9 @@ public class BoardItem : MonoBehaviour
         Assert.IsTrue(cost > 0);
         return unpassable ? (byte)0 : cost;
     }
+
+    public bool IsPassable()
+    {
+        return !unpassable;
+    }
 }

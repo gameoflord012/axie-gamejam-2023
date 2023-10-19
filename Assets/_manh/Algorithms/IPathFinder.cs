@@ -31,6 +31,12 @@ namespace Algorithms
             get;
         }
 
+        int SearchPerFixedUpdate
+        {
+            get;
+            set;
+        }
+
         HeuristicFormula Formula
         {
             get;
