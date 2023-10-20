@@ -29,8 +29,6 @@ public class FigureController : MonoBehaviour
         animationState = animationSkeleton.AnimationState;
         pathFinding = GetComponent<PathFindingComponent>();
 
-        animationState.SetAnimation(0, "activity/prepare", true);
-
         if(followTransform)
             StartCoroutine(FindPathCoroutine());
     }
