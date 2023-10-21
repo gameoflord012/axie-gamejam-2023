@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af8a45250e929e428a350bda03b2224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextState: Idle
 --- !u!1001 &84956169461913047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -377,7 +378,7 @@ PrefabInstance:
       objectReference: {fileID: 4776580131439349704}
     - target: {fileID: 3785476936908198494, guid: 37a24dd66c532d24284e89a6cced9cd1, type: 3}
       propertyPath: animationName
-      value: action/idle
+      value: action/idle/normal
       objectReference: {fileID: 0}
     - target: {fileID: 9114399048145807446, guid: 37a24dd66c532d24284e89a6cced9cd1, type: 3}
       propertyPath: m_Name

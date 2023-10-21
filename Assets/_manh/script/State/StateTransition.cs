@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class StateTransition : MonoBehaviour
+public class StateTransition : MonoBehaviour
 {
     [SerializeField] string nextState;
+    [SerializeField] bool shouldTransition = false;
 
     public string NextState { get => nextState; }
-    public abstract bool ShouldTransition();
+
+    public bool ShouldTransition { get => shouldTransition; set => shouldTransition = value; }
 }

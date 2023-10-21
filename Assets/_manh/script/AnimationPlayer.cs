@@ -11,7 +11,7 @@ public class AnimationPlayer : MonoBehaviour
 
     Spine.AnimationState animationState;
 
-    private void Start()
+    private void Awake()
     {
         animationState = skeleton.AnimationState;
     }

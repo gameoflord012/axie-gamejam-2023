@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class StateController : MonoBehaviour
     Dictionary<string, StateBase> getState = new();
 
     [SerializeField] string nextState;
+    [SerializeField] string defaultState;
 
     StateBase currentState;
 
@@ -16,19 +18,23 @@ public class StateController : MonoBehaviour
         {
             getState[state.name] = state;
         }
+
+        ChangeToState(defaultState);
     }
 
     private void Update()
     {
         currentState?.StateUpdateInternal();
 
-        if (currentState == null || currentState.name != nextState) ChangeToState(nextState);
+        if (currentState == null || currentState.name != nextState) 
+            if(!String.IsNullOrEmpty(nextState)) 
+                ChangeToState(nextState);
 
         if (currentState != null)
         {
             foreach (var transition in currentState.GetTransitions())
             {
-                if (transition.ShouldTransition())
+                if (transition.ShouldTransition)
                 {
                     ChangeToState(transition.NextState);
                     break;
