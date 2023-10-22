@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: defender-body-trigger
       objectReference: {fileID: 0}
+    - target: {fileID: 5342957967524748072, guid: 8456cd7826160a94a9459bf1b314a1be, type: 3}
+      propertyPath: animationName
+      value: attack/melee/mouth-bite
+      objectReference: {fileID: 0}
     - target: {fileID: 7415372318702038078, guid: 8456cd7826160a94a9459bf1b314a1be, type: 3}
       propertyPath: filterTags.Array.size
       value: 1

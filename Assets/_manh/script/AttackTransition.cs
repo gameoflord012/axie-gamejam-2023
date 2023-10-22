@@ -6,9 +6,18 @@ public class AttackTransition : StateTransition
 {
     [SerializeField] ColliderFilter attackCollider;
 
-    public override bool ShouldTransition 
-    { 
-        get => base.ShouldTransition || attackCollider.NumTouchCols() > 0; 
-        set => base.ShouldTransition = value; 
+    private void Awake()
+    {
+        if(attackCollider == null)
+        {
+            attackCollider = transform.root.
+                                GetComponentInChildren<Attacker>().
+                                GetComponent<ColliderFilter>();
+        }
+    }
+
+    protected override bool ShouldTransitionOverride()
+    {
+        return attackCollider.NumTouchCols() > 0;
     }
 }

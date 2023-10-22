@@ -5,13 +5,23 @@ using UnityEngine;
 public class StateTransition : MonoBehaviour
 {
     [SerializeField] string nextState;
-    [SerializeField] bool shouldTransition = false;
+    [SerializeField] bool reverseCondition = false;
+    [SerializeField] bool alwayTransition = false;
+    [ReadOnly] [SerializeField] bool canTransition;
 
     public string NextState { get => nextState; }
 
-    public virtual bool ShouldTransition 
+
+    public bool ShouldTransition 
     { 
-        get => shouldTransition; 
-        set => shouldTransition = value; 
+        get => alwayTransition || (ShouldTransitionOverride() ^ reverseCondition); 
+        set => alwayTransition = value; 
+    }
+
+    protected virtual bool ShouldTransitionOverride() { return false; }
+
+    private void Update()
+    {
+        canTransition = ShouldTransition;
     }
 }
