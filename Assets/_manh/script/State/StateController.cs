@@ -35,13 +35,23 @@ public class StateController : MonoBehaviour
 
         if (currentState != null)
         {
-            foreach (var transition in currentState.GetTransitions())
+            ProcessStateTransition(currentState);
+        }
+
+        if (getState.ContainsKey("any-state"))
+        {
+            ProcessStateTransition(getState["any-state"]);
+        }
+    }
+
+    private void ProcessStateTransition(StateBase state)
+    {
+        foreach (var transition in state.GetTransitions())
+        {
+            if (transition.ShouldTransition)
             {
-                if (transition.ShouldTransition)
-                {
-                    ChangeToState(transition.NextState);
-                    break;
-                }
+                ChangeToState(transition.NextState);
+                break;
             }
         }
     }

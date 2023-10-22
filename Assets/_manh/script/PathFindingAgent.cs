@@ -21,6 +21,8 @@ public class PathFindingAgent : MonoBehaviour
     [SerializeField] float distanceThreshold = 0.1f;
     [SerializeField] bool isRunning = false;
 
+    [SerializeField] string targetFollowTag;
+
     PathFindingComponent pathFinding;
     List<Vector2> pathToGo = new();
 
@@ -30,6 +32,17 @@ public class PathFindingAgent : MonoBehaviour
     void Start()
     {
         pathFinding = GetComponent<PathFindingComponent>();
+
+        if(!followTransform)
+        {
+            followTransform = GameObject.FindGameObjectWithTag(targetFollowTag)?.transform;
+        }
+
+        if(!currentBoard)
+        {
+            currentBoard = GameObject.FindGameObjectWithTag("main-board")?.GetComponent<Board>();
+            if (!currentBoard) Debug.LogWarning("Main board not found on any scenes");
+        }
 
         if(followTransform)
             pathFindingCoroutine = StartCoroutine(FindPathCoroutine());

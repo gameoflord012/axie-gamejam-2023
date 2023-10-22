@@ -45,5 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextState: attack
-  shouldTransition: 0
+  reverseCondition: 0
+  alwayTransition: 0
+  canTransition: 0
   attackCollider: {fileID: 0}
+  attackTriggerTags:
+  - monster-attack-trigger
+  - defender-attack-trigger
+  transitionAmount: 0

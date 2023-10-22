@@ -13,6 +13,9 @@ TagManager:
   - main-base
   - base-body-collider
   - base-body-trigger
+  - main-board
+  - attack-trigger
+  - body-trigger
   layers:
   - Default
   - TransparentFX
