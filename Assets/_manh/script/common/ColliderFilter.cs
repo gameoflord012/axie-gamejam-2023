@@ -15,12 +15,16 @@ public class ColliderFilter : MonoBehaviour
 
     [SerializeField] string[] filterTags;
     [SerializeField] LayerMask filterLayers;
-
     [SerializeField] bool debugMessage = false;
 
     public List<Collider2D> GetTouchCols()
     {
         return touchCols.ToList();
+    }
+
+    public int NumTouchCols()
+    {
+        return touchCols.Count;
     }
 
     private void Start()

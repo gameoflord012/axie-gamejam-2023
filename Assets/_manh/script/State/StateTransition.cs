@@ -9,5 +9,9 @@ public class StateTransition : MonoBehaviour
 
     public string NextState { get => nextState; }
 
-    public bool ShouldTransition { get => shouldTransition; set => shouldTransition = value; }
+    public virtual bool ShouldTransition 
+    { 
+        get => shouldTransition; 
+        set => shouldTransition = value; 
+    }
 }

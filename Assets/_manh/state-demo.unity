@@ -456,12 +456,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6309447340488969782, guid: 608f215431a3879419cd758f1903ae88, type: 3}
+      propertyPath: debugMessage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8299794823448014272, guid: 608f215431a3879419cd758f1903ae88, type: 3}
       propertyPath: _animationName
       value: attack/melee/bite-attack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9210019598596008808, guid: 608f215431a3879419cd758f1903ae88, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 608f215431a3879419cd758f1903ae88, type: 3}
