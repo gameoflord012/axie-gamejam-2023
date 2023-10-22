@@ -4,7 +4,7 @@ using Spine;
 using Spine.Unity;
 using UnityEngine;
 
-public class AnimationPlayer : MonoBehaviour
+public class AnimationPlayerSequence : BaseSequence
 {
     [SerializeField] SkeletonAnimation skeleton;
     [SerializeField] string animationName;
@@ -14,16 +14,15 @@ public class AnimationPlayer : MonoBehaviour
 
     private void Awake()
     {
+        if (skeleton == null)
+            skeleton = GetComponentInParent<SkeletonAnimation>();
+
         animationState = skeleton.AnimationState;
     }
 
-    public void PlayAnimation()
+    protected override IEnumerator GetSequenceImp()
     {
         animationState.SetAnimation(0, animationName, doRepeat);
-    }
-
-    public void StopAnimation()
-    {
-        animationState.ClearTracks();
+        yield return null;
     }
 }
