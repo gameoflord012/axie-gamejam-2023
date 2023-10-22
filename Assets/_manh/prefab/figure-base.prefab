@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 784329628237437536}
   - component: {fileID: 4856007938518604319}
   m_Layer: 0
-  m_Name: base-buba
+  m_Name: figure-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - monster-root
+  - monster-body-trigger
+  - monster-attack-trigger
+  - defender-root
+  - defender-body-trigger
+  - defender-attack-trigger
   layers:
   - Default
   - TransparentFX

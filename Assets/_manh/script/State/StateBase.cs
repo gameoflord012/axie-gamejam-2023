@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class StateBase : MonoBehaviour
 {
     public UnityEvent onStateEnter;
+    public UnityEvent onStateExit;
 
     public StateTransition[] GetTransitions()
     {
@@ -23,6 +24,7 @@ public class StateBase : MonoBehaviour
     public void StateExitInternal()
     {
         StateExit();
+        onStateEnter?.Invoke();
     }
     public void StateUpdateInternal()
     {

@@ -8,29 +8,31 @@ using UnityEngine.Rendering;
 
 using Point = System.Drawing.Point;
 
-public class FigureController : MonoBehaviour
+public class PathFindingAgent : MonoBehaviour
 {
-    SkeletonAnimation animationSkeleton;
-    Spine.AnimationState animationState;
+
+    [SerializeField] Transform followTransform;
+    [SerializeField] Transform agentTransform;
 
     [SerializeField] Board currentBoard;
+    [Space]
     [SerializeField] float speed = 2;
     [SerializeField] float rescanNavTime = 1f;
     [SerializeField] float distanceThreshold = 0.1f;
-    [SerializeField] Transform followTransform;
+    [SerializeField] bool isRunning = false;
 
     PathFindingComponent pathFinding;
     List<Vector2> pathToGo = new();
 
+    Coroutine pathFindingCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
-        animationSkeleton = GetComponent<SkeletonAnimation>();
-        animationState = animationSkeleton.AnimationState;
         pathFinding = GetComponent<PathFindingComponent>();
 
         if(followTransform)
-            StartCoroutine(FindPathCoroutine());
+            pathFindingCoroutine = StartCoroutine(FindPathCoroutine());
     }
 
     private void FixedUpdate()
@@ -40,7 +42,7 @@ public class FigureController : MonoBehaviour
         if (pathToGo.Count > 0)
         {
             Vector2 nextPoint = pathToGo[0];
-            transform.position += ((Vector3)nextPoint - transform.position).normalized * speed * Time.deltaTime;
+            agentTransform.position += ((Vector3)nextPoint - agentTransform.position).normalized * speed * Time.deltaTime;
         }
     }
 
@@ -52,7 +54,7 @@ public class FigureController : MonoBehaviour
         {
             yield return pathFinding.GeneratePath(
                 currentBoard.GetBoardGrid(),
-                currentBoard.WorldPosToGrid(pathToGo.Count > 0 ? pathToGo[0] : transform.position),
+                currentBoard.WorldPosToGrid(pathToGo.Count > 0 ? pathToGo[0] : agentTransform.position),
                 currentBoard.WorldPosToGrid(followTransform.position));
 
             if (pathToGo.Count > 0)
@@ -73,7 +75,7 @@ public class FigureController : MonoBehaviour
     {
         while (
             pathToGo.Count > 0 &&
-            Vector2.Distance(transform.position, pathToGo[0]) < distanceThreshold)
+            Vector2.Distance(agentTransform.position, pathToGo[0]) < distanceThreshold)
         {
             pathToGo.RemoveAt(0);
         }

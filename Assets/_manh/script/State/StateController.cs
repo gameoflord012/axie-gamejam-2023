@@ -9,6 +9,7 @@ public class StateController : MonoBehaviour
 
     [SerializeField] string nextState;
     [SerializeField] string defaultState;
+    [SerializeField] string currentStateString;
 
     StateBase currentState;
 
@@ -24,6 +25,8 @@ public class StateController : MonoBehaviour
 
     private void Update()
     {
+        currentStateString = currentState?.name;
+
         currentState?.StateUpdateInternal();
 
         if (currentState == null || currentState.name != nextState) 

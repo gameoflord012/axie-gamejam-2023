@@ -31,6 +31,7 @@ public class ColliderFilter : MonoBehaviour
     bool CheckValid(Collider2D col)
     {
         if (filterLayers.value == 0 && filterTags.Count() == 0) return true;
+
         if ((filterLayers.value & col.gameObject.layer) != 0) return true;
 
         foreach(string tag in filterTags)
