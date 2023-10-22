@@ -24,7 +24,7 @@ public class StateBase : MonoBehaviour
     public void StateExitInternal()
     {
         StateExit();
-        onStateEnter?.Invoke();
+        onStateExit?.Invoke();
     }
     public void StateUpdateInternal()
     {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Content;
 using UnityEngine;
 
 public class StateController : MonoBehaviour
@@ -48,6 +49,8 @@ public class StateController : MonoBehaviour
     {
         foreach (var transition in state.GetTransitions())
         {
+            if (transition.NextState == currentState.name) continue;
+
             if (transition.ShouldTransition)
             {
                 ChangeToState(transition.NextState);

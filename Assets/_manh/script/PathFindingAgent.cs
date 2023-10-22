@@ -33,7 +33,7 @@ public class PathFindingAgent : MonoBehaviour
     {
         pathFinding = GetComponent<PathFindingComponent>();
 
-        if(!followTransform)
+        if(!followTransform && !string.IsNullOrEmpty(targetFollowTag))
         {
             followTransform = GameObject.FindGameObjectWithTag(targetFollowTag)?.transform;
         }
