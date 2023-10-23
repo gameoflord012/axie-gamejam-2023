@@ -2,34 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 
 public static class Extension
 {
-    public static GameObject[] FindGameObjectsWithTag(this Transform transform, string tag)
+    public static Transform[] GetAllChild(this Transform transform)
     {
-        List<GameObject> result = new();
+        List<Transform> result = new();
         List<Transform> tree = new();
         tree.Add(transform);
 
-        while(tree.Count > 0)
+        while (tree.Count > 0)
         {
             Transform node = tree[0];
-            for(int i = 0; i < node.childCount; i++)
+            for (int i = 0; i < node.childCount; i++)
             {
                 tree.Add(node.GetChild(i));
             }
 
-            if(node.CompareTag(tag))
-            {
-                result.Add(node.gameObject);
-            }
+            result.Add(node);
 
             tree.RemoveAt(0);
         }
 
         return result.ToArray();
+    }
+
+    public static GameObject[] FindGameObjectsWithTag(this Transform transform, string tag)
+    {
+        return transform.GetAllChild().
+            Where(child => child.CompareTag(tag)).
+            Select(child => child.gameObject).
+            ToArray();
     }
 
     public static GameObject FindWithTagFromTree(this GameObject gameObject, string tag)

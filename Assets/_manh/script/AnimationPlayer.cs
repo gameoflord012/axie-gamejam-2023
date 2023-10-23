@@ -14,6 +14,11 @@ public class AnimationPlayer : MonoBehaviour
 
     private void Awake()
     {
+        if(skeleton == null)
+        {
+            skeleton = transform.root.GetComponentInChildren<SkeletonAnimation>();
+        }
+
         animationState = skeleton.AnimationState;
     }
 

@@ -96,11 +96,24 @@ namespace Algorithms
             get;
             set;
         }
+
+        int BoundX
+        {
+            get;
+            set;
+        }
+
+        int BoundY
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Methods
         void FindPathStop();
-        public IEnumerator FindPath(Point start, Point end, byte[,] mGrid, List<PathFinderNode> result, int stepPerFixedUpdate = 10);
+
+        public IEnumerator FindPath(Point start, Point end, List<PathFinderNode> result, int stepPerFixedUpdate = 10);
         #endregion
 
     }

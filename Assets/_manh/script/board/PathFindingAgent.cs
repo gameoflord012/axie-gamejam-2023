@@ -9,13 +9,12 @@ using UnityEngine.Rendering;
 
 using Point = System.Drawing.Point;
 
+[RequireComponent(typeof(PathFindingComponent))]
 public class PathFindingAgent : MonoBehaviour
 {
 
     [SerializeField] Transform followTransform;
     [SerializeField] Transform agentTransform;
-
-    [SerializeField] Board currentBoard;
     [Space]
     [SerializeField] float speed = 2;
     [SerializeField] float rescanNavTime = 1f;
@@ -39,17 +38,11 @@ public class PathFindingAgent : MonoBehaviour
             followTransform = GameObject.FindGameObjectWithTag(targetFollowTag)?.transform;
         }
 
-        if(!currentBoard)
-        {
-            currentBoard = GameObject.FindGameObjectWithTag("main-board")?.GetComponent<Board>();
-            if (!currentBoard) Debug.LogWarning("Main board not found on any scenes");
-        }
-
         if(followTransform)
             pathFindingCoroutine = StartCoroutine(FindPathCoroutine());
 
         if (model == null)
-            model = gameObject.FindWithTagFromTree("figure-model").transform;
+            model = gameObject.FindWithTagFromTree("figure-model")?.transform;
     }
 
     private void FixedUpdate()
@@ -62,10 +55,13 @@ public class PathFindingAgent : MonoBehaviour
             var dir = ((Vector3)nextPoint - agentTransform.position).normalized;
             agentTransform.position += dir * speed * Time.deltaTime;
 
-            if (dir.x > 0)
-                model.localScale = new Vector2(-Mathf.Abs(model.localScale.x), model.localScale.y);
-            else
-                model.localScale = new Vector2(Mathf.Abs(model.localScale.x), model.localScale.y);
+            if(model)
+            {
+                if (dir.x > 0)
+                    model.localScale = new Vector2(-Mathf.Abs(model.localScale.x), model.localScale.y);
+                else
+                    model.localScale = new Vector2(Mathf.Abs(model.localScale.x), model.localScale.y);
+            }
         }
     }
 
@@ -76,19 +72,15 @@ public class PathFindingAgent : MonoBehaviour
         while (true)
         {
             yield return pathFinding.GeneratePath(
-                currentBoard.GetBoardGrid(),
-                currentBoard.WorldPosToGrid(pathToGo.Count > 0 ? pathToGo[0] : agentTransform.position),
-                currentBoard.WorldPosToGrid(followTransform.position));
+                pathToGo.Count > 0 ? pathToGo[0] : agentTransform.position,
+                followTransform.position);
 
             if (pathToGo.Count > 0)
             {
                 pathToGo.RemoveRange(1, pathToGo.Count - 1);
             }
 
-            foreach (var gridPos in pathFinding.GetGenerateResult())
-            {
-                pathToGo.Add(currentBoard.GridToWorldPos(new Vector2Int(gridPos.X, gridPos.Y)));
-            }
+            pathToGo.AddRange(pathFinding.GetGenerateResult());
 
             yield return new WaitForSeconds(rescanNavTime);
         }
@@ -102,19 +94,6 @@ public class PathFindingAgent : MonoBehaviour
         {
             pathToGo.RemoveAt(0);
         }
-
-        for(int idx = 1; idx < pathToGo.Count; idx++)
-        { 
-            while (idx + 1 < pathToGo.Count && 
-                Mathf.Approximately(
-                    Vector2.Angle(
-                        pathToGo[idx] - pathToGo[idx - 1],
-                        pathToGo[idx + 1] - pathToGo[idx]),
-                    0))
-            {
-                pathToGo.RemoveAt(idx);
-            }
-        }  
     }
 
     private void OnDrawGizmos()

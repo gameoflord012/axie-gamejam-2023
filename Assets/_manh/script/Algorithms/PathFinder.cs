@@ -86,11 +86,15 @@ namespace Algorithms
         private double                          mCompletedTime          = 0;
         private bool                            mDebugProgress          = false;
         private bool                            mDebugFoundPath         = false;
+        private int mBoundX = 10;
+        private int mBoundY = 10;
+        IPathAgent mPathAgent;
         #endregion
 
         #region Constructors
-        public PathFinder()
+        public PathFinder(IPathAgent mPathAgent)
         {
+            this.mPathAgent = mPathAgent;
         }
         #endregion
 
@@ -166,7 +170,8 @@ namespace Algorithms
             set { mDebugFoundPath = value; }
         }
 
-        public int SearchPerFixedUpdate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int BoundX { get => mBoundX; set => mBoundX = value; }
+        public int BoundY { get => mBoundY; set => mBoundY = value; }
         #endregion
 
         #region Methods
@@ -175,7 +180,7 @@ namespace Algorithms
             mStop = true;
         }
 
-        public IEnumerator FindPath(Point start, Point end, byte[,] mGrid, List<PathFinderNode> result, int stepPerFixedUpdate = 10)
+        public IEnumerator FindPath(Point start, Point end, List<PathFinderNode> result, int stepPerFixedUpdate = 10)
         {
             HighResolutionTime.Start();
 
@@ -183,8 +188,8 @@ namespace Algorithms
 
             PathFinderNode parentNode;
             bool found  = false;
-            int  gridX  = mGrid.GetUpperBound(0) + 1;
-            int  gridY  = mGrid.GetUpperBound(1) + 1;
+            int  gridX  = BoundX;
+            int  gridY  = BoundY;
 
             mStop       = false;
             mStopped    = false;
@@ -197,12 +202,6 @@ namespace Algorithms
             if (mDebugProgress && PathFinderDebug != null)
                 PathFinderDebug(0, 0, end.X, end.Y, PathFinderNodeType.End, -1, -1);
             #endif
-
-            sbyte[,] direction;
-            if (mDiagonals)
-                direction = new sbyte[8,2]{ {0,-1} , {1,0}, {0,1}, {-1,0}, {1,-1}, {1,1}, {-1,1}, {-1,-1}};
-            else
-                direction = new sbyte[4,2]{ {0,-1} , {1,0}, {0,1}, {-1,0}};
 
             parentNode.G         = 0;
             parentNode.H         = mHEstimate;
@@ -248,21 +247,23 @@ namespace Algorithms
                     mHoriz = (parentNode.X - parentNode.PX); 
 
                 //Lets calculate each successors
-                for (int i=0; i<(mDiagonals ? 8 : 4); i++)
+                
+                foreach(var p in mPathAgent.GetNeighbours(new Point(parentNode.X, parentNode.Y)))
                 {
-                    PathFinderNode newNode;
-                    newNode.X = parentNode.X + direction[i,0];
-                    newNode.Y = parentNode.Y + direction[i,1];
+                    Debug.Log(p.X + " " + p.Y);
 
-                    if (newNode.X < 0 || newNode.Y < 0 || newNode.X >= gridX || newNode.Y >= gridY)
+                    PathFinderNode newNode;
+                    newNode.X = BoundX + 1;
+                    newNode.Y = BoundY + 1;
+
+                    newNode.X = p.X;
+                    newNode.Y = p.Y;
+                    
+
+                    if (newNode.X < -BoundX || newNode.Y < -BoundY || newNode.X > BoundX || newNode.Y > BoundY)
                         continue;
 
-                    int newG;
-                    if (mHeavyDiagonals && i>3)
-                        newG = parentNode.G + (int) (mGrid[newNode.X, newNode.Y] * 2.41f);
-                    else
-                        newG = parentNode.G + mGrid[newNode.X, newNode.Y];
-
+                    int newG = parentNode.G + mPathAgent.GetNodeCost(new Point(newNode.X, newNode.Y));
 
                     if (newG == parentNode.G)
                     {

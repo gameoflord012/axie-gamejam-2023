@@ -16,20 +16,33 @@ public class ColliderFilter : MonoBehaviour
     [SerializeField] string[] filterTags;
     [SerializeField] LayerMask filterLayers;
     [SerializeField] bool debugMessage = false;
+    [SerializeField][ReadOnly] int numTouchCols;
+
+    void CheckForDisable()
+    {
+        touchCols.RemoveWhere(col => !col.isActiveAndEnabled);
+    }
 
     public List<Collider2D> GetTouchCols()
     {
+        CheckForDisable();
+
         return touchCols.ToList();
     }
 
     public int NumTouchCols()
     {
-        return touchCols.Count;
+        return GetTouchCols().Count;
     }
 
     private void Start()
     {
         col = GetComponent<Collider2D>();
+    }
+
+    private void Update()
+    {
+        numTouchCols = NumTouchCols();
     }
 
     bool CheckValid(Collider2D col)

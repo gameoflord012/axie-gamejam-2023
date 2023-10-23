@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7760311416009127679}
   - component: {fileID: 7368218868995262637}
   - component: {fileID: 2248261857129810576}
+  - component: {fileID: 1588648664902684127}
   m_Layer: 0
   m_Name: body-collier
   m_TagString: base-body-trigger
@@ -95,6 +96,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1588648664902684127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400253702917265949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5b69885b10fa648a0cd3e65a141515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  onHealthReachZero:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2589121328279121017
 GameObject:
   m_ObjectHideFlags: 0
