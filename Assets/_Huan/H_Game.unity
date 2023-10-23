@@ -6433,7 +6433,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1331905326}
-        m_TargetAssemblyTypeName: DemoItemSystem, Assembly-CSharp
+        m_TargetAssemblyTypeName: TestButtons, Assembly-CSharp
         m_MethodName: IncreaseHealth
         m_Mode: 1
         m_Arguments:
@@ -8562,7 +8562,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1331905324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0bd309c97eb99a4781a966074163b7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 65e14f7b23d59ed438dcbdafd05f01f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &1353283823

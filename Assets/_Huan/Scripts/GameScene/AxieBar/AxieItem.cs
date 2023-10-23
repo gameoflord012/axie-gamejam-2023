@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class AxieItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AxieSO axie;
 
-    // Update is called once per frame
-    void Update()
+    public void PlaceAxie(Vector2 position)
     {
-        
+        Instantiate(axie.prefab, position, Quaternion.identity);
     }
 }
