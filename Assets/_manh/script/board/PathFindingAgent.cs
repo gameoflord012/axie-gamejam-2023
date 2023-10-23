@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Algorithms;
 using Spine.Unity;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -20,8 +21,8 @@ public class PathFindingAgent : MonoBehaviour
     [SerializeField] float rescanNavTime = 1f;
     [SerializeField] float distanceThreshold = 0.1f;
     [SerializeField] bool isRunning = false;
-
     [SerializeField] string targetFollowTag;
+    [SerializeField] Transform model;
 
     PathFindingComponent pathFinding;
     List<Vector2> pathToGo = new();
@@ -46,6 +47,9 @@ public class PathFindingAgent : MonoBehaviour
 
         if(followTransform)
             pathFindingCoroutine = StartCoroutine(FindPathCoroutine());
+
+        if (model == null)
+            model = gameObject.FindWithTagFromTree("figure-model").transform;
     }
 
     private void FixedUpdate()
@@ -55,7 +59,13 @@ public class PathFindingAgent : MonoBehaviour
         if (pathToGo.Count > 0)
         {
             Vector2 nextPoint = pathToGo[0];
-            agentTransform.position += ((Vector3)nextPoint - agentTransform.position).normalized * speed * Time.deltaTime;
+            var dir = ((Vector3)nextPoint - agentTransform.position).normalized;
+            agentTransform.position += dir * speed * Time.deltaTime;
+
+            if (dir.x > 0)
+                model.localScale = new Vector2(-Mathf.Abs(model.localScale.x), model.localScale.y);
+            else
+                model.localScale = new Vector2(Mathf.Abs(model.localScale.x), model.localScale.y);
         }
     }
 
@@ -104,8 +114,7 @@ public class PathFindingAgent : MonoBehaviour
             {
                 pathToGo.RemoveAt(idx);
             }
-        }
-        
+        }  
     }
 
     private void OnDrawGizmos()

@@ -16,6 +16,7 @@ TagManager:
   - main-board
   - attack-trigger
   - body-trigger
+  - figure-model
   layers:
   - Default
   - TransparentFX

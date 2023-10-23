@@ -7,12 +7,17 @@ public class BaseSequence : MonoBehaviour
 {
     public UnityEvent onSequenceStart;
     public UnityEvent onSequenceStop;
+
+    [SerializeField] bool disable = false;
     protected virtual IEnumerator GetSequenceImp() { yield break; }
 
     public IEnumerator PlaySequence()
     {
-        onSequenceStart?.Invoke();
-        yield return GetSequenceImp();
-        onSequenceStop?.Invoke();
+        if(!disable)
+        {
+            onSequenceStart?.Invoke();
+            yield return GetSequenceImp();
+            onSequenceStop?.Invoke();
+        }
     }
 }
