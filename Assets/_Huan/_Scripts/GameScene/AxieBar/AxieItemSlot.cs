@@ -14,6 +14,17 @@ public class AxieItemSlot : MonoBehaviour
     {
         AxieBarManager.Instance.SelectAxieSlot(this);
     }
+    
+    public AxieSO GetAxieInSlot()
+    {
+        if (transform.childCount > 0)
+        {
+            AxieSO axie = transform.GetComponentInChildren<AxieItem>().axie;
+            return axie;
+        }
+
+        return null;
+    }
 
     internal void Select()
     {

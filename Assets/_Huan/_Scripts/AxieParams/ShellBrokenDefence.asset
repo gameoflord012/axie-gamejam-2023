@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e245fc242f4b0f64caf7e47e99ddf0f0, type: 3}
   m_Name: ShellBrokenDefence
   m_EditorClassIdentifier: 
-  name: 
+  name: ShellBrokenDefence
   id: 0
-  prefab: {fileID: 0}
+  prefab: {fileID: 4380546706110816972, guid: 71cf4d0d37755ee499c3c8fe3efcee24, type: 3}
   sprite: {fileID: 0}

@@ -7,6 +7,7 @@ public class AxieBarManager : MonoBehaviour
     public static AxieBarManager Instance { get; private set; }
 
     public AxieItemSlot[] axieItemSlots;
+    [HideInInspector] public AxieSO selectedAxie = null;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class AxieBarManager : MonoBehaviour
     {
         DeselectAll();
         slot.Select();
+        selectedAxie = slot.GetAxieInSlot();
     }
 
     public void DeselectAll()
