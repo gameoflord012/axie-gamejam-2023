@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/_Huan/H_Menu.unity
     guid: 4304a89412ef5af4d954c0efb5585cd7
   - enabled: 1
-    path: Assets/_Huan/H_Game.unity
+    path: Assets/_Huan/H_Game1.unity
     guid: 605dbbbec63485b4fa619426592d02a7
   m_configObjects: {}
