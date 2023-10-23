@@ -13020,7 +13020,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1715353087}
   - component: {fileID: 1715353089}
-  - component: {fileID: 1715353088}
+  - component: {fileID: 1715353090}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -13049,22 +13049,6 @@ RectTransform:
   m_AnchoredPosition: {x: -741, y: 485}
   m_SizeDelta: {x: 360, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1715353088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715353086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7df541160be27943b1bef17c606fbf9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthText: {fileID: 1828525143}
-  healthSlider: {fileID: 1715353089}
-  currentHealth: 0
-  maxHealth: 100
 --- !u!114 &1715353089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13116,9 +13100,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1715353088}
+      - m_Target: {fileID: 1715353090}
         m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: OnHealthChange
+        m_MethodName: OnHealthChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13128,6 +13112,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1715353090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715353086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910b6871227fbfa47af0379fe14cfb9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 1715353089}
+  healthText: {fileID: 1828525143}
 --- !u!1 &1715423792
 GameObject:
   m_ObjectHideFlags: 0
