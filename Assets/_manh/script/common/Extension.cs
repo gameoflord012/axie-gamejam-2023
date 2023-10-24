@@ -10,38 +10,34 @@ public static class Extension
 {
     public static Transform[] GetAllChild(this Transform transform)
     {
-        List<Transform> result = new();
         List<Transform> tree = new();
         tree.Add(transform);
 
-        while (tree.Count > 0)
+        for(int i = 0; i < tree.Count; i++)
         {
-            Transform node = tree[0];
-            for (int i = 0; i < node.childCount; i++)
+            Transform node = tree[i];
+            for (int j = 0; j < node.childCount; j++)
             {
-                tree.Add(node.GetChild(i));
+                tree.Add(node.GetChild(j));
             }
-
-            result.Add(node);
-
-            tree.RemoveAt(0);
         }
 
-        return result.ToArray();
+        tree.Reverse();
+        return tree.ToArray();
     }
 
-    public static GameObject[] FindGameObjectsWithTag(this Transform transform, string tag)
+    public static GameObject FindSiblingWithTag(this Transform transform, string tag)
     {
-        return transform.GetAllChild().
+        return transform.root.GetAllChild().
             Where(child => child.CompareTag(tag)).
-            Select(child => child.gameObject).
-            ToArray();
+            First()?.gameObject;
     }
 
-    public static GameObject FindWithTagFromTree(this GameObject gameObject, string tag)
+    public static T FindSibling<T>(this Transform transform)
     {
-        var result = FindGameObjectsWithTag(gameObject.transform.root, tag);
-        return result.Count() > 0 ? result[0] : null;
+        return transform.root.GetAllChild().
+            Where(child => child.GetComponent<T>() != null).
+            First().GetComponent<T>();
     }
 }
 
