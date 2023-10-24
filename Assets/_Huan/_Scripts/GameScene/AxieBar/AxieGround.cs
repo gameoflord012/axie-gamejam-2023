@@ -10,10 +10,9 @@ public class AxieGround : MonoBehaviour
 
     public void OnButtonClicked()
     {
-        if ((AxieBarManager.Instance.emptyGround && AxieBarManager.Instance.selectedAxie) == true)
+        if (ItemPlacingManager.Instance.selectingAxie == true && ItemPlacingManager.Instance.selectedItem != null)
         {
-            AxieBarManager.Instance.selectedAxie.PlaceAxie(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            ItemPlacingManager.Instance.selectedItem.PlaceItem(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
-
     }
 }

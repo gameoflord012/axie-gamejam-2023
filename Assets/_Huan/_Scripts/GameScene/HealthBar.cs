@@ -19,8 +19,8 @@ public class HealthBar : MonoBehaviour
         healthSlider.value = curHealth;
         healthText.text = curHealth.ToString();
 
-        H_Events.HealthBar.OnHealthIncrease.AddListener(OnHealthIncrease);
-        H_Events.HealthBar.OnHealthDecrease.AddListener(OnHealthDecrease);
+        H_Events.UI_HealthBar.OnHealthIncrease.AddListener(OnHealthIncrease);
+        H_Events.UI_HealthBar.OnHealthDecrease.AddListener(OnHealthDecrease);
     }
 
     public void OnHealthChanged(float value)

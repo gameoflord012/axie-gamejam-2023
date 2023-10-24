@@ -6,11 +6,11 @@ public class TestButtons : MonoBehaviour
 {
     public void IncreaseHealth()
     {
-        H_Events.HealthBar.OnHealthIncrease.Invoke(10);
+        H_Events.UI_HealthBar.OnHealthIncrease.Invoke(10);
     }
 
     public void DecreaseHealth()
     {
-        H_Events.HealthBar.OnHealthDecrease.Invoke(15);
+        H_Events.UI_HealthBar.OnHealthDecrease.Invoke(15);
     }
 }

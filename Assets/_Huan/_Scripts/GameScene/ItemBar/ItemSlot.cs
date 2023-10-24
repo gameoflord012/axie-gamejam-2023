@@ -3,35 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemSlot : MonoBehaviour
+public class ItemSlot : AbstractItemSlot
 {
-    public Image image;
-
-    public Color selectedColor, notSelectedColor;
-
-    public void OnSlotSelect()
+    public override void OnSlotSelect()
     {
-        ItemBarManager.Instance.SelectItemSlot(this);
-    }
-
-    public ItemSO GetItemInSlot()
-    {
-        if (transform.childCount > 0)
-        {
-            ItemSO item = transform.GetComponentInChildren<Item>().item;
-            return item;
-        }
-
-        return null;
-    }
-
-    internal void Select()
-    {
-        image.color = selectedColor;
-    }
-
-    internal void Deselect()
-    {
-        image.color = notSelectedColor;
+        ItemPlacingManager.Instance.SelectItemSlot(this, false);
     }
 }
