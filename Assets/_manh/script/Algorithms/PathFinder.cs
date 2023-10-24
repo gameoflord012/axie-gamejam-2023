@@ -250,7 +250,7 @@ namespace Algorithms
                 
                 foreach(var p in mPathAgent.GetNeighbours(new Point(parentNode.X, parentNode.Y)))
                 {
-                    Debug.Log(p.X + " " + p.Y);
+                    //Debug.Log(p.X + " " + p.Y);
 
                     PathFinderNode newNode;
                     newNode.X = BoundX + 1;

@@ -211,6 +211,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   debugMessage: 0
+  numTouchCols: 0
 --- !u!114 &1845701612016861014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,6 +351,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   debugMessage: 0
+  numTouchCols: 0
 --- !u!114 &7944346015541959240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,6 +727,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchPerFixedUpdate: 50
+  nearestIfNotFound: 0
+  agentRadius: 0
+  step: 0.5
+  agentMaxDis: 25
+  obstacle:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &4091274445598409921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -739,12 +748,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followTransform: {fileID: 0}
   agentTransform: {fileID: 9185605779934435596}
-  currentBoard: {fileID: 0}
   speed: 2
   rescanNavTime: 1
   distanceThreshold: 0.1
   isRunning: 0
   targetFollowTag: 
+  model: {fileID: 0}
 --- !u!1001 &3873202228741829001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1334,6 +1343,7 @@ MonoBehaviour:
   onSequenceStop:
     m_PersistentCalls:
       m_Calls: []
+  disable: 0
   skeleton: {fileID: 9160887942642722128}
   animationName: attack/melee/bite-attack
   doRepeat: 0
@@ -1355,6 +1365,7 @@ MonoBehaviour:
   onSequenceStop:
     m_PersistentCalls:
       m_Calls: []
+  disable: 0
   delayInSeconds: 1
 --- !u!114 &4329211024096409647
 MonoBehaviour:
@@ -1374,6 +1385,7 @@ MonoBehaviour:
   onSequenceStop:
     m_PersistentCalls:
       m_Calls: []
+  disable: 0
   attacker: {fileID: 7944346015541959240}
   modelTransform: {fileID: 0}
 --- !u!114 &1237257948313204545
@@ -1394,4 +1406,5 @@ MonoBehaviour:
   onSequenceStop:
     m_PersistentCalls:
       m_Calls: []
+  disable: 0
   logMsg: hello world
