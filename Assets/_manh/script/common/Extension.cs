@@ -8,6 +8,10 @@ using UnityEngine;
 
 public static class Extension
 {
+    public static Vector2 GetMouseWorldPos()
+    {
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
     public static Transform[] GetAllChild(this Transform transform)
     {
         List<Transform> tree = new();

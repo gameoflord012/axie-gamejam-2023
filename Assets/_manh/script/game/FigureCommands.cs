@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class FigureCommands : MonoBehaviour
 {
+    [SerializeField] bool debug;
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-            MoveAgent(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        if(debug)
+        {
+            if (Input.GetMouseButtonDown(0))
+                MoveAgent(Extension.GetMouseWorldPos());
+        }
     }
 
     public void MoveAgent(Vector2 dest)
