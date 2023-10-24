@@ -8,6 +8,6 @@ public class Item : AbstractItem
 
     public override void PlaceItem(Vector2 position)
     {
-        
+        Debug.Log("Placed item: " + item.name);
     }
 }
