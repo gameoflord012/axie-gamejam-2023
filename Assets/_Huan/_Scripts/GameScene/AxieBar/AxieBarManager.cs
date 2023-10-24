@@ -7,7 +7,8 @@ public class AxieBarManager : MonoBehaviour
     public static AxieBarManager Instance { get; private set; }
 
     public AxieItemSlot[] axieItemSlots;
-    [HideInInspector] public AxieSO selectedAxie = null;
+    [HideInInspector] public AxieItem selectedAxie = null;
+    [HideInInspector] public bool emptyGround = true;
 
     private void Awake()
     {
