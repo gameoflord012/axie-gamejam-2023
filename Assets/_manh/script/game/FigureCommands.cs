@@ -10,13 +10,17 @@ public class FigureCommands : MonoBehaviour
         if(debug)
         {
             if (Input.GetMouseButtonDown(0))
-                MoveAgent(Extension.GetMouseWorldPos());
+            MoveAgent(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
+        
     }
 
     public void MoveAgent(Vector2 dest)
     {
         var agent = transform.FindSibling<PathFindingAgent>();
+        var state = transform.FindSibling<StateController>();
+
+        state.ChangeToState("follow-target");
         agent.MoveTo(dest);
     }
 }

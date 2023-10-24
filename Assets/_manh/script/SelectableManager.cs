@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SelectableManager : MonoBehaviour
 {
-    [SerializeField] GameObject currentSelectedGameObject;
+    public UnityEvent<GameObject> onSelectableChanged;
+
     [SerializeField] bool debug;
+
+    [SerializeField][ReadOnly] GameObject currentSelectedGameObject;
+    [SerializeField][ReadOnly] GameObject previousSlectable = null;
+
+    public GameObject PreviousSlectable { get => previousSlectable; }
+    public GameObject CurrentSelectedGameObject { get => currentSelectedGameObject; }
+
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
@@ -16,7 +25,11 @@ public class SelectableManager : MonoBehaviour
                 1 << LayerMask.NameToLayer("selectable"))
                 .collider;
 
+            previousSlectable = currentSelectedGameObject;
             currentSelectedGameObject = col ? col.gameObject : null;
+
+            if (previousSlectable != currentSelectedGameObject)
+                onSelectableChanged?.Invoke(currentSelectedGameObject);
 
             if (debug)
                 Debug.Log(col);

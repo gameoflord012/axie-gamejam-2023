@@ -5,6 +5,7 @@ using Spine.Unity;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 
 using Point = System.Drawing.Point;
@@ -29,6 +30,8 @@ public class PathFindingAgent : MonoBehaviour
     public Transform FollowTransform { get => followTransform; set => followTransform = value; }
 
     #endregion
+
+    public UnityEvent onAgentClearPath;
 
     void Start()
     {
@@ -94,6 +97,11 @@ public class PathFindingAgent : MonoBehaviour
             Vector2.Distance(agentTransform.position, pathToGo[0]) < distanceThreshold)
         {
             pathToGo.RemoveAt(0);
+
+            if(pathToGo.Count == 0)
+            {
+                onAgentClearPath?.Invoke();
+            }
         }
     }
 
