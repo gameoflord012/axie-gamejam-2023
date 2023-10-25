@@ -23,7 +23,7 @@ public class MissleSpawner : MonoBehaviour
         }
     }
 
-    void SpawnTo(Transform followTransform)
+    public void SpawnTo(Transform followTransform)
     {
         var dir = followTransform.transform.position - transform.position;
 

@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class MissleNav : MonoBehaviour
 {
+    public UnityEvent onMissleReached;
+
     [SerializeField] Transform followTransform;
+    [SerializeField] float distanceOffset = 1;
     [SerializeField] float speed = 5;
     [SerializeField] float rotationSpeed = 10;
 
@@ -21,13 +25,19 @@ public class MissleNav : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = transform.up * speed;
+        if(Vector2.Distance(followTransform.position, transform.position) < distanceOffset)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
 
-        var dir = (Vector2)(followTransform.position - transform.position).normalized;
+        var dis = (Vector2)(followTransform.position - transform.position);
+
+        rb.velocity = transform.up * speed * dis.magnitude;
 
         var rotation = Quaternion.RotateTowards(
             transform.rotation, 
-            Quaternion.LookRotation(Vector3.forward, dir), 
+            Quaternion.LookRotation(Vector3.forward, dis), 
             rotationSpeed * Time.deltaTime);
 
         rb.MoveRotation(rotation);

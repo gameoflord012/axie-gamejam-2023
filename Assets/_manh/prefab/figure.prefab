@@ -83,11 +83,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7438340093814837772}
-  - {fileID: 6662550839016438263}
-  - {fileID: 385825174573954032}
   - {fileID: 4760870591836533652}
   - {fileID: 18170454696279463}
   - {fileID: 750355024332796226}
+  - {fileID: 7084135160478017656}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4835507924792010507
@@ -118,12 +117,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4835507924792010507}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9185605779934435596}
+  m_Father: {fileID: 7084135160478017656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &2032957068688852842
 CircleCollider2D:
@@ -230,6 +229,39 @@ MonoBehaviour:
   onHealthReachZero:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &5648428929604573301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7084135160478017656}
+  m_Layer: 0
+  m_Name: combat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7084135160478017656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5648428929604573301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6662550839016438263}
+  - {fileID: 385825174573954032}
+  m_Father: {fileID: 9185605779934435596}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8819968011938825184
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,12 +335,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9081196258874147551}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9185605779934435596}
+  m_Father: {fileID: 7084135160478017656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &7719596633195686081
 CircleCollider2D:
@@ -899,6 +931,9 @@ MonoBehaviour:
   distanceThreshold: 0.1
   rescanNavTime: 1
   speed: 2
+  onAgentClearPath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &3873202228741829001
 PrefabInstance:
   m_ObjectHideFlags: 0

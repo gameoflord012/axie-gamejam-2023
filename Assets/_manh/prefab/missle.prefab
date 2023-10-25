@@ -74,9 +74,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9ddb50b1b9d9446b064cd7f9040081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onMissleReached:
+    m_PersistentCalls:
+      m_Calls: []
   followTransform: {fileID: 0}
+  distanceOffset: 1
   speed: 3
-  rotationSpeed: 90
+  rotationSpeed: 180
 --- !u!1 &2496419526361176942
 GameObject:
   m_ObjectHideFlags: 0
