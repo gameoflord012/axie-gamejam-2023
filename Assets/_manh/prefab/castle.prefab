@@ -206,7 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9155873715149331897}
   m_Layer: 0
-  m_Name: main-base
+  m_Name: castle
   m_TagString: main-base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
