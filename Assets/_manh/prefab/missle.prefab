@@ -79,8 +79,8 @@ MonoBehaviour:
       m_Calls: []
   followTransform: {fileID: 0}
   distanceOffset: 1
-  speed: 3
-  rotationSpeed: 180
+  speed: 2
+  rotationSpeed: 500
 --- !u!1 &2496419526361176942
 GameObject:
   m_ObjectHideFlags: 0

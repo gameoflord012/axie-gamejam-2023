@@ -6,6 +6,7 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
     [SerializeField] uint damage;
+    [SerializeField] bool isAreaAttack = false;
 
     ColliderFilter attackTrigger;
 
@@ -22,5 +23,16 @@ public class Attacker : MonoBehaviour
             return attackTrigger.GetTouchCols()[0].GetComponent<Health>();
         else
             return null;
+    }
+
+    public void DealDamage()
+    {
+        foreach(var col in attackTrigger.GetTouchCols())
+        {
+            var health = col.transform.FindSibling<Health>();
+            health.UpdateHealth(this);
+
+            if (!isAreaAttack) break;
+        }
     }
 }

@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpawnMissleSequence : BaseSequence
 {
+    public UnityEvent onMissleReached;
+
     [SerializeField] MissleSpawner spawner;
     [SerializeField] Attacker attacker;
 
@@ -15,7 +18,9 @@ public class SpawnMissleSequence : BaseSequence
 
     protected override IEnumerator GetSequenceImp()
     {
-        spawner.SpawnTo(attacker.GetAttackTarget().transform);
+        var missle = spawner.SpawnTo(attacker.GetAttackTarget().transform);
+        missle.onMissleReached?.AddListener(onMissleReached.Invoke);
+
         yield break;
     }
 }

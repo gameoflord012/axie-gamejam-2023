@@ -15,6 +15,7 @@ public class MissleNav : MonoBehaviour
     [SerializeField] float rotationSpeed = 10;
 
     Rigidbody2D rb;
+    bool isReached = false;
 
     public Transform FollowTransform { get => followTransform; set => followTransform = value; }
 
@@ -27,9 +28,17 @@ public class MissleNav : MonoBehaviour
     {
         if(Vector2.Distance(followTransform.position, transform.position) < distanceOffset)
         {
+            if(!isReached)
+            {
+                isReached = true;
+                onMissleReached?.Invoke();
+            }
+
             rb.velocity = Vector2.zero;
             return;
         }
+
+        isReached = false;
 
         var dis = (Vector2)(followTransform.position - transform.position);
 
