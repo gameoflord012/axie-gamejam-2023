@@ -5,7 +5,6 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-
 public static class Extension
 {
     public static Vector2 GetMouseWorldPos()
@@ -30,16 +29,42 @@ public static class Extension
         return tree.ToArray();
     }
 
+    public static Transform[] BottomUpSearch(this Transform node)
+    {
+        Transform previousNode = null;
+        List<Transform> result = new();
+        
+        while(node)
+        {
+            result.Add(node);
+
+            for (int i = 0; i < node.childCount; i++)
+            {
+                var child = node.GetChild(i);
+
+                if (child == previousNode)
+                    continue;
+
+                result.AddRange(child.GetAllChild());
+            }
+
+            previousNode = node;
+            node = node.parent;
+        }
+
+        return result.ToArray();
+    }
+
     public static GameObject FindSiblingWithTag(this Transform transform, string tag)
     {
-        return transform.root.GetAllChild().
+        return transform.BottomUpSearch().
             Where(child => child.CompareTag(tag)).
             First()?.gameObject;
     }
 
     public static T FindSibling<T>(this Transform transform)
     {
-        return transform.root.GetAllChild().
+        return transform.BottomUpSearch().
             Where(child => child.GetComponent<T>() != null).
             First().GetComponent<T>();
     }
