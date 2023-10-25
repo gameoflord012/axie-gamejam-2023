@@ -22,8 +22,13 @@ public class ItemPlacingManager : MonoBehaviour
         DeselectAll();
         slot.Select();
         selectedItem = slot.GetItemInSlot();
+
+        if (selectedItem != null)
+            selectingItem = !isAxie;
+        else
+            selectingItem = false;
+
         selectingAxie = isAxie;
-        selectingItem = !isAxie;
     }
 
     public void DeselectAll()
@@ -32,5 +37,8 @@ public class ItemPlacingManager : MonoBehaviour
         {
             itemSlot.Deselect();
         }
+
+        selectingAxie = false;
+        selectingItem = false;
     }
 }

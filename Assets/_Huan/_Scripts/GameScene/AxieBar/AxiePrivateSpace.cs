@@ -4,15 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class AxiePrivateSpace : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class AxiePrivateSpace : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    public Image image;
-    public Color invisibleColor, axieSelectedColor, itemSelectedColor;
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private Image image;
+    [SerializeField] private Color invisibleColor, axieSelectedColor, itemSelectedColor;
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (ItemPlacingManager.Instance.selectingAxie == false && ItemPlacingManager.Instance.selectingItem == true)
+        {
+            H_Events.UI_Item.OnUseItem.Invoke(((Item)ItemPlacingManager.Instance.selectedItem).item, canvas.gameObject);
+        }
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        image.color = axieSelectedColor;
-        // Need to separate the case of axieSelectedColor and itemSelectedColor
+        if (ItemPlacingManager.Instance.selectingAxie == true)
+            image.color = axieSelectedColor;
     }
 
     public void OnPointerExit(PointerEventData eventData)
