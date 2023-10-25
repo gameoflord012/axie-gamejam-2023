@@ -16,4 +16,9 @@ public static class H_Events
     {
         public static UnityEvent<ItemSO, GameObject> OnUseItem = new UnityEvent<ItemSO, GameObject>();
     }
+
+    public static class UI_Axie
+    {
+        public static UnityEvent<Vector2, AxieSO> onAxieSpawnPosition;
+    }
 }
