@@ -15,7 +15,7 @@ public class AnimationPlayerSequence : BaseSequence
     private void Awake()
     {
         if (skeleton == null)
-            skeleton = GetComponentInParent<SkeletonAnimation>();
+            skeleton = transform.FindSibling<SkeletonAnimation>();
 
         animationState = skeleton.AnimationState;
     }

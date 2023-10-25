@@ -28,6 +28,7 @@ public class PathFindingAgent : MonoBehaviour
     Coroutine pathFindingCoroutine;
 
     public Transform FollowTransform { get => followTransform; set => followTransform = value; }
+    public float Speed { get => speed; set => speed = value; }
 
     #endregion
 
