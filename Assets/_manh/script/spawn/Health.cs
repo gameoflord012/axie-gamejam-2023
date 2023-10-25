@@ -6,8 +6,15 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     [SerializeField] uint health;
+    [SerializeField] uint maxHealth;
 
     public UnityEvent onHealthReachZero;
+
+    public uint MaxHealth 
+    { 
+        get => maxHealth; 
+        set { maxHealth = value; health = maxHealth; } 
+    }
 
     public uint GetHealth() { return health; }
 
