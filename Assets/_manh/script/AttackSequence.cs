@@ -18,6 +18,6 @@ public class AttackSequence : BaseSequence
     {
         if (attacker.GetAttackTarget() == null) yield break;
 
-        attacker.GetAttackTarget().UpdateHealth(attacker);
+        attacker.DealDamage();
     }
 }

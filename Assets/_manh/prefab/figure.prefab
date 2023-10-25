@@ -443,7 +443,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43e2a61dec24bd459ad4608a850df21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 20
+  isAreaAttack: 0
 --- !u!1001 &403759559521622345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1652,5 +1653,5 @@ MonoBehaviour:
   onSequenceStop:
     m_PersistentCalls:
       m_Calls: []
-  disable: 0
+  disable: 1
   logMsg: hello world
