@@ -7,9 +7,9 @@ public static class H_Events
 {
     public static class UI_HealthBar
     {
-        public static UnityEvent<float> OnHealthIncrease = new UnityEvent<float>();
-        public static UnityEvent<float> OnHealthDecrease = new UnityEvent<float>();
-        public static UnityEvent<float> OnMaxHealthChange = new UnityEvent<float>();
+        public static UnityEvent<float> OnBaseHealthIncrease = new UnityEvent<float>();
+        public static UnityEvent<float> OnBaseHealthDecrease = new UnityEvent<float>();
+        public static UnityEvent<float> OnBaseMaxHealthChange = new UnityEvent<float>();
     }
 
     public static class UI_Item
