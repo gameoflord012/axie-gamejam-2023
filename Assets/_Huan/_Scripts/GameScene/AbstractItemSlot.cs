@@ -10,7 +10,7 @@ public abstract class AbstractItemSlot : MonoBehaviour
     [SerializeField] protected Button button;
 
     protected IItemSlotQuery m_ItemSlotQuery;
-    [SerializeField] private Color selectedColor, notSelectedColor;
+    [SerializeField] protected Color selectedColor, notSelectedColor;
     [SerializeField] protected TMP_Text cooldownText;
     [SerializeField] protected Slider cooldownSlider;
     protected int cooldown = 0;
