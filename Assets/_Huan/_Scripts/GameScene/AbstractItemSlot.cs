@@ -7,6 +7,7 @@ using TMPro;
 public abstract class AbstractItemSlot : MonoBehaviour
 {
     [SerializeField] protected Image image;
+    [SerializeField] protected Button button;
 
     protected IItemSlotQuery m_ItemSlotQuery;
     [SerializeField] private Color selectedColor, notSelectedColor;
@@ -46,6 +47,7 @@ public abstract class AbstractItemSlot : MonoBehaviour
 
         cooldownSlider.gameObject.SetActive(false);
         m_ItemSlotQuery.SetSelectable(true);
+        button.interactable = true;
         yield return null;
     }
 

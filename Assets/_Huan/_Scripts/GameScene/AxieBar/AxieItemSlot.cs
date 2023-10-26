@@ -11,9 +11,12 @@ public class AxieItemSlot : AbstractItemSlot
         if (m_ItemSlotQuery.IsSelectable() == true)
         {
             ItemPlacingManager.Instance.SelectItemSlot(this, true);
+
+            button.interactable = false;
             cooldownSlider.gameObject.SetActive(true);
             cooldown = m_ItemSlotQuery.GetCooldownDuration();
             m_ItemSlotQuery.SetSelectable(false);
+
             StartCoroutine(CooldownCoroutine());
         }
     }

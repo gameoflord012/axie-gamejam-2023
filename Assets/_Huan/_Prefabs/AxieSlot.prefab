@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 316139782587073598}
+  button: {fileID: 2641516263884311242}
   selectedColor: {r: 0.43218735, g: 1, b: 0.32452828, a: 0}
   notSelectedColor: {r: 1, g: 1, b: 1, a: 0}
   cooldownText: {fileID: 1354711899554199032}
@@ -611,7 +612,7 @@ RectTransform:
   m_Father: {fileID: 9043563031195815830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,4 +25,9 @@ public class Navigator : MonoBehaviour
     {
         SceneManager.LoadScene("H_Menu");
     }    
+
+    public void PauseGame()
+    {
+        // Do pause game
+    }
 }
