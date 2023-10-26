@@ -8,7 +8,8 @@ public class AttackState : StateBase
     [SerializeField] Attacker attacker;
     [SerializeField] Transform model;
 
-    private void Update()
+
+    public override void StateUpdate()
     {
         if (attacker.GetAttackTarget() == null) return;
 

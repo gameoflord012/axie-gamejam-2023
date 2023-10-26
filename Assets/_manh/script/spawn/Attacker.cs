@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(ColliderFilter))]
@@ -19,17 +20,21 @@ public class Attacker : MonoBehaviour
 
     public Health GetAttackTarget()
     {
-        if (attackTrigger.NumTouchCols() > 0)
-            return attackTrigger.GetTouchCols()[0].GetComponent<Health>();
-        else
-            return null;
+        return GetAttackTargets().Count() > 0 ? GetAttackTargets().First() : null;
+    }
+
+    public Health[] GetAttackTargets()
+    {
+        return attackTrigger.GetTouchCols().
+            Select(col => col.GetComponent<Health>()).
+            Where(health => health.GetHealth() > 0).
+            ToArray();
     }
 
     public void DealDamage()
     {
-        foreach(var col in attackTrigger.GetTouchCols())
+        foreach(var health in GetAttackTargets())
         {
-            var health = col.transform.FindSibling<Health>();
             health.UpdateHealth(this);
 
             if (!isAreaAttack) break;

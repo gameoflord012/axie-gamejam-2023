@@ -469,6 +469,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 7438340093814837772}
     m_Modifications:
     - target: {fileID: 2115625965999987838, guid: 37a24dd66c532d24284e89a6cced9cd1, type: 3}
+      propertyPath: includeInAntState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115625965999987838, guid: 37a24dd66c532d24284e89a6cced9cd1, type: 3}
       propertyPath: onStateEnter.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -594,7 +598,7 @@ PrefabInstance:
       objectReference: {fileID: 9160887942642722128}
     - target: {fileID: 3785476936908198494, guid: 37a24dd66c532d24284e89a6cced9cd1, type: 3}
       propertyPath: animationName
-      value: action/idle/normal
+      value: action/die
       objectReference: {fileID: 0}
     - target: {fileID: 9114399048145807446, guid: 37a24dd66c532d24284e89a6cced9cd1, type: 3}
       propertyPath: m_Name
@@ -958,6 +962,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7438340093814837772}
     m_Modifications:
+    - target: {fileID: 808034500672384461, guid: 37a24dd66c532d24284e89a6cced9cd1, type: 3}
+      propertyPath: m_Name
+      value: to-die
+      objectReference: {fileID: 0}
     - target: {fileID: 2115625965999987838, guid: 37a24dd66c532d24284e89a6cced9cd1, type: 3}
       propertyPath: onStateEnter.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -1557,6 +1565,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  includeInAntState: 1
   attacker: {fileID: 7944346015541959240}
   model: {fileID: 4760870591836533652}
 --- !u!4 &6788716255542671134 stripped
@@ -1606,6 +1615,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   disable: 0
+  delayBeforePlaying: 0
   skeleton: {fileID: 9160887942642722128}
   animationName: attack/melee/bite-attack
   doRepeat: 0
@@ -1628,6 +1638,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   disable: 0
+  delayBeforePlaying: 0
   delayInSeconds: 1
 --- !u!114 &4329211024096409647
 MonoBehaviour:
@@ -1648,6 +1659,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   disable: 0
+  delayBeforePlaying: 0
   attacker: {fileID: 7944346015541959240}
   modelTransform: {fileID: 0}
 --- !u!114 &1237257948313204545
@@ -1669,4 +1681,5 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   disable: 1
+  delayBeforePlaying: 0
   logMsg: hello world

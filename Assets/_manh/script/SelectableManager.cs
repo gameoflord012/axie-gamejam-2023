@@ -7,6 +7,7 @@ public class SelectableManager : MonoBehaviour
 {
     public UnityEvent<GameObject> onSelectableChanged;
 
+    [SerializeField] LayerMask selectableLayer;
     [SerializeField] bool debug;
 
     [SerializeField][ReadOnly] GameObject currentSelectedGameObject;
@@ -22,7 +23,7 @@ public class SelectableManager : MonoBehaviour
             var col = Physics2D.Raycast(
                 Extension.GetMouseWorldPos(),
                 Vector2.zero, 0,
-                1 << LayerMask.NameToLayer("selectable"))
+                selectableLayer)
                 .collider;
 
             previousSlectable = currentSelectedGameObject;

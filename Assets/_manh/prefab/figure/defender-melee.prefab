@@ -48,9 +48,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5748461718687499296, guid: a96cd9acbafded5419b2bcf2f6123c34, type: 3}
+      propertyPath: m_Name
+      value: to-die
+      objectReference: {fileID: 0}
     - target: {fileID: 6355098431008641962, guid: a96cd9acbafded5419b2bcf2f6123c34, type: 3}
       propertyPath: m_Name
-      value: figure-defender
+      value: defender-melee
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -8,9 +8,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 419729752879425352, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.57
+      objectReference: {fileID: 0}
     - target: {fileID: 2992704435101310838, guid: 9105085023deb884fbc790aae9913033, type: 3}
       propertyPath: m_Name
-      value: defender-melee
+      value: defender-buba
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503392851343067388, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: m_Name
+      value: to-die
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757468173251017849, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: m_Radius
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 9218947349369064884, guid: 9105085023deb884fbc790aae9913033, type: 3}
       propertyPath: m_LocalPosition.x

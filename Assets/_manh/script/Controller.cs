@@ -11,8 +11,8 @@ public class Controller : MonoBehaviour
 
     private void Start()
     {
-        selectableManager = GameObject.FindAnyObjectByType<SelectableManager>();
-        selectableManager.onSelectableChanged.AddListener(MoveAgentToNewPosition);
+        selectableManager = GetComponentInChildren<SelectableManager>();
+        selectableManager?.onSelectableChanged.AddListener(MoveAgentToNewPosition);
     }
 
     private void MoveAgentToNewPosition(GameObject selectable)

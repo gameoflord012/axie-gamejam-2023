@@ -37,11 +37,11 @@ public class StateController : MonoBehaviour
         if (currentState != null)
         {
             ProcessStateTransition(currentState);
-        }
 
-        if (getState.ContainsKey("any-state"))
-        {
-            ProcessStateTransition(getState["any-state"]);
+            if (currentState.IncludeInAnyState && getState.ContainsKey("any-state"))
+            {
+                ProcessStateTransition(getState["any-state"]);
+            }
         }
     }
 

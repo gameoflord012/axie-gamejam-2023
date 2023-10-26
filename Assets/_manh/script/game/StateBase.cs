@@ -8,12 +8,15 @@ public class StateBase : MonoBehaviour
     public UnityEvent onStateEnter;
     public UnityEvent onStateExit;
 
+    [SerializeField] bool includeInAntState = true;
+
     public StateTransition[] GetTransitions()
     {
         return GetComponentsInChildren<StateTransition>();
     }
 
     public StateController CurrentStateController { get; set; }
+    public bool IncludeInAnyState { get => includeInAntState; }
 
     public void StateEnterInternal()
     {

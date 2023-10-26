@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DieTransition : StateTransition
+public class FigureHealthZeroTransition : StateTransition
 {
     [SerializeField] Health health;
 
