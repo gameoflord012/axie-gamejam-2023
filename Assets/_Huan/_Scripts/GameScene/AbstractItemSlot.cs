@@ -6,12 +6,12 @@ using TMPro;
 
 public abstract class AbstractItemSlot : MonoBehaviour
 {
-    public Image image;
+    [SerializeField] protected Image image;
 
     protected IItemSlotQuery m_ItemSlotQuery;
-    public Color selectedColor, notSelectedColor;
-    public TMP_Text cooldownText;
-    public Slider cooldownSlider;
+    [SerializeField] private Color selectedColor, notSelectedColor;
+    [SerializeField] protected TMP_Text cooldownText;
+    [SerializeField] protected Slider cooldownSlider;
     protected int cooldown = 0;
 
     protected void Awake()
@@ -43,7 +43,8 @@ public abstract class AbstractItemSlot : MonoBehaviour
 
             yield return new WaitForSeconds(1);
         }
-      
+
+        cooldownSlider.gameObject.SetActive(false);
         m_ItemSlotQuery.SetSelectable(true);
         yield return null;
     }

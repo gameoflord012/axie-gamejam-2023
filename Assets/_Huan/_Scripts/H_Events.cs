@@ -19,6 +19,6 @@ public static class H_Events
 
     public static class UI_Axie
     {
-        public static UnityEvent<Vector2, AxieSO> OnAxieSpawnPosition;
+        public static UnityEvent<Vector2, AxieSO> OnAxieSpawnPosition = new UnityEvent<Vector2, AxieSO>();
     }
 }
