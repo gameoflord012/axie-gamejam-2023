@@ -448,17 +448,21 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3568856958256014200, guid: cbe285b2d79b5de4fab9b1a7db2ba6d1, type: 3}
+      propertyPath: health
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5054695972887430758, guid: cbe285b2d79b5de4fab9b1a7db2ba6d1, type: 3}
       propertyPath: damage
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6297101429389837602, guid: cbe285b2d79b5de4fab9b1a7db2ba6d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.6343925
+      value: -5.84
       objectReference: {fileID: 0}
     - target: {fileID: 6297101429389837602, guid: cbe285b2d79b5de4fab9b1a7db2ba6d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.0650668
+      value: -3.67
       objectReference: {fileID: 0}
     - target: {fileID: 6297101429389837602, guid: cbe285b2d79b5de4fab9b1a7db2ba6d1, type: 3}
       propertyPath: m_LocalPosition.z

@@ -57,6 +57,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2348478984698861862, guid: cef37892429024243a139694418c5a6b, type: 3}
+      propertyPath: misslePrefab
+      value: 
+      objectReference: {fileID: 8962688451254274873, guid: 6d4fe827c8eb86f4995e31c8839edf39, type: 3}
+    - target: {fileID: 2348478984698861862, guid: cef37892429024243a139694418c5a6b, type: 3}
       propertyPath: maxMissleSpawnCount
       value: 5
       objectReference: {fileID: 0}
@@ -76,6 +80,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: to-idle
       objectReference: {fileID: 0}
+    - target: {fileID: 8923403398148391832, guid: cef37892429024243a139694418c5a6b, type: 3}
+      propertyPath: stat
+      value: 
+      objectReference: {fileID: 11400000, guid: ffda6c98f4b4bd943b7a7600eff41e2b, type: 2}
     m_RemovedComponents:
     - {fileID: 9029979236787218806, guid: cef37892429024243a139694418c5a6b, type: 3}
     m_RemovedGameObjects: []
