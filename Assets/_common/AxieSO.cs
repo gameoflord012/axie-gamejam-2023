@@ -6,6 +6,10 @@ using UnityEngine;
 public class AxieSO : ScriptableObject
 {
     public string name;
+
+    public int placementCost;
+    public float cooldownTime;
+
     public int id;
     public GameObject prefab;
     public Sprite sprite;

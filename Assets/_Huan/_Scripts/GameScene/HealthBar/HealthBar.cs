@@ -23,6 +23,8 @@ public class HealthBar : MonoBehaviour
         H_Events.UI_HealthBar.OnBaseHealthDecrease.AddListener(OnHealthDecrease);
     }
 
+    //TODO: SetHealth
+
     public void OnHealthChanged(float value)
     {
         healthText.text = value.ToString();
