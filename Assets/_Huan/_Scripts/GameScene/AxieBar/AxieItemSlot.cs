@@ -8,6 +8,12 @@ public class AxieItemSlot : AbstractItemSlot
 {
     public override void OnSlotSelect()
     {
-        ItemPlacingManager.Instance.SelectItemSlot(this, true);
+        if (m_ItemSlotQuery.IsSelectable() == true)
+        {
+            ItemPlacingManager.Instance.SelectItemSlot(this, true);
+            cooldown = m_ItemSlotQuery.GetCooldownDuration();
+            m_ItemSlotQuery.SetSelectable(false);
+            StartCoroutine(CooldownCoroutine());
+        }
     }
 }

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5236219795852932139}
   - component: {fileID: 2586033176967536014}
   - component: {fileID: 316139782587073598}
-  - component: {fileID: -5823520098229887978}
   - component: {fileID: 2152558713616990735}
   - component: {fileID: 2641516263884311242}
+  - component: {fileID: -5823520098229887978}
   m_Layer: 5
   m_Name: ItemSlot
   m_TagString: Untagged
@@ -78,21 +78,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-5823520098229887978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371945042847687393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f733bfc0c52d35c42a46c8d31af9bb6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 316139782587073598}
-  selectedColor: {r: 0.43137255, g: 1, b: 0.3254902, a: 0.5019608}
-  notSelectedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
 --- !u!114 &2152558713616990735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,3 +158,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &-5823520098229887978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371945042847687393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f733bfc0c52d35c42a46c8d31af9bb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 316139782587073598}
+  selectedColor: {r: 0.43137255, g: 1, b: 0.3254902, a: 0.5019608}
+  notSelectedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+  cooldownText: {fileID: 0}
+  cooldownSlider: {fileID: 0}
