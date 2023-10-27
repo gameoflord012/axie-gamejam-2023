@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 564506153512839417}
   - component: {fileID: 784329628237437536}
   - component: {fileID: 4856007938518604319}
+  - component: {fileID: 3787998007996106914}
   m_Layer: 0
   m_Name: figure-model
   m_TagString: Untagged
@@ -121,3 +122,16 @@ MonoBehaviour:
   _animationName: 
   loop: 1
   timeScale: 1
+--- !u!114 &3787998007996106914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2894829343225814553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e9526b46f467840ac69321d2162c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aniamtions: []

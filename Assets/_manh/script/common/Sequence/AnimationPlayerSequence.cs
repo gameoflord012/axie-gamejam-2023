@@ -6,23 +6,16 @@ using UnityEngine;
 
 public class AnimationPlayerSequence : BaseSequence
 {
-    [SerializeField] SkeletonAnimation skeleton;
-    [SerializeField] string animationName;
-    [SerializeField] bool doRepeat = true;
-
-    Spine.AnimationState animationState;
+    AnimationPlayer animationPlayer;
 
     private void Awake()
     {
-        if (skeleton == null)
-            skeleton = transform.FindSibling<SkeletonAnimation>();
-
-        animationState = skeleton.AnimationState;
+        animationPlayer = transform.FindSibling<AnimationPlayer>();
     }
 
     protected override IEnumerator GetSequenceImp()
     {
-        animationState.SetAnimation(0, animationName, doRepeat);
+        animationPlayer.PlayAnimation();
         yield return null;
     }
 }
