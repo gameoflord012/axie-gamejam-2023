@@ -11,6 +11,7 @@ public class Attacker : MonoBehaviour
     
     [SerializeField] uint damage;
     [SerializeField] bool isAreaAttack = false;
+    [SerializeField] bool autoDealDamageWhenTouch = false;
     [SerializeField] bool debug;
 
     ColliderFilter attackTrigger;
@@ -18,6 +19,17 @@ public class Attacker : MonoBehaviour
     private void Awake()
     {
         attackTrigger = GetComponent<ColliderFilter>();
+    }
+
+    private void OnEnable()
+    {
+        if(autoDealDamageWhenTouch)
+            attackTrigger.onTriggerEnter.AddListener(OnAttackerTouchHealth);
+    }
+
+    private void OnDisable()
+    {
+        attackTrigger.onTriggerEnter.RemoveListener(OnAttackerTouchHealth);
     }
 
     private void Update()
@@ -52,5 +64,10 @@ public class Attacker : MonoBehaviour
 
             if (!isAreaAttack) break;
         }
+    }
+
+    void OnAttackerTouchHealth(Collider2D collider2D)
+    {
+        collider2D.GetComponent<Health>().UpdateHealth(this);
     }
 }
