@@ -9,8 +9,9 @@ public class CoinManager : MonoBehaviour
     public int Coin { get => coin; }
 
     public TMP_Text coinText;
+    [SerializeField] private int starterCoin = 10;
 
-    private int coin = 0;
+    private int coin;
 
     private void Awake()
     {
@@ -19,7 +20,8 @@ public class CoinManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateCoin(9);        
+        coin = starterCoin;
+        UpdateCoin(coin);        
     }
 
     private void UpdateCoin(int newValue)
@@ -28,13 +30,13 @@ public class CoinManager : MonoBehaviour
         coinText.text = coin.ToString();
     }
 
-    private void AddCoin(int value)
+    public void AddCoin(int value)
     {
         coin += value;
         coinText.text = coin.ToString();
     }
 
-    private bool UseCoin(int value)
+    public bool UseCoin(int value)
     {
         if (value > coin)
             return false;

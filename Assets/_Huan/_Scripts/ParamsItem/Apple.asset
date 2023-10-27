@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Apple
   id: 0
-  price: 10
+  price: 44
   prefab: {fileID: 5699696144664647815, guid: 40b9cca9d424edb419fe375bf7e1629b, type: 3}
   sprite: {fileID: 0}

@@ -12,20 +12,4 @@ public static class UI_Event
         public static UnityEvent<Vector2, AxieSO> OnAxieSpawnPosition = new UnityEvent<Vector2, AxieSO>();
 
     }
-
-    ////TODO: chuyen qua UIProvider
-    //public static class GlobalHealthBar
-    //{
-    //    //public static UnityEvent<float> OnBaseHealthIncrease = new UnityEvent<float>();
-    //    //public static UnityEvent<float> OnBaseHealthDecrease = new UnityEvent<float>();
-    //    public static UnityEvent<float> OnBaseMaxHealthChange = new UnityEvent<float>();
-    //    public static UnityEvent<float> OnBaseHealthChange = new();
-    //}
-
-    ////TODO: Coin system
-    //public static class Coin
-    //{
-    //    //TODO: chuyen qua UIProvider
-    //    public static UnityEvent OnCoinChange = new UnityEvent();
-    //}
 }

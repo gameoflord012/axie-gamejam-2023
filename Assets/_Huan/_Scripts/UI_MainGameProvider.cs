@@ -28,11 +28,12 @@ public class UI_MainGameProvider : MonoBehaviour, IMainGameUIProvider
 
     public float GetCurrentTime()
     {
-        throw new System.NotImplementedException();
+        return 100;
     }
 
     public float GetMaxTime()
     {
-        throw new System.NotImplementedException();
+        return 120;
     }
+
 }
