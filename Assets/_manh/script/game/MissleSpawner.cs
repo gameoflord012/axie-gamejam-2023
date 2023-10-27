@@ -15,6 +15,7 @@ public class MissleSpawner : MonoBehaviour
     [SerializeField] bool destroyWhenMissleReached;
 
     //[SerializeField] float degreeOffset = 0;
+    [SerializeField] bool spawnAtDestination = false;
     [SerializeField] bool debug;
 
     private void Update()
@@ -44,17 +45,10 @@ public class MissleSpawner : MonoBehaviour
 
     private MissleNav SpawnMissle(Transform followTransform)
     {
-        var dir = followTransform.transform.position - transform.position;
-
-        bool flip = dir.x < 0;
-
-        var rotation = Quaternion.identity;
-            //Quaternion.LookRotation(Vector3.forward, dir) *
-            //Quaternion.Euler(0, 0, degreeOffset * (flip ? -1 : 1));
-
         var missle = Instantiate(
             misslePrefab,
-            transform.position, rotation);
+            spawnAtDestination ? followTransform.position : transform.position, 
+            Quaternion.identity);
 
         missle.FollowTransform = followTransform;
 

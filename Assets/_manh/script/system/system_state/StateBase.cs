@@ -12,7 +12,7 @@ public class StateBase : MonoBehaviour
 
     [SerializeField] bool autoPlayAndStopSequence = true;
 
-    SequencePlayer[] sequences;
+    SequencePlayer[] sequences = { };
 
     private void Start()
     {

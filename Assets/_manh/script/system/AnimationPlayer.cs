@@ -21,10 +21,6 @@ public class AnimationPlayer : MonoBehaviour
         }
 
         animationState = skeleton.AnimationState;
-    }
-
-    private void Start()
-    {
         animationLoader = transform.FindSibling<AnimationLoader>();
     }
 

@@ -11,21 +11,26 @@ public class SequencePlayer : MonoBehaviour
     [SerializeField] BaseSequence[] sequences;
     [SerializeField] bool playRepeatly = false;
 
+    [SerializeField] bool isRunning = false;
+
     Coroutine runningCoroutine;
 
     public void PlayAll()
     {
+        if (isRunning) return;
         runningCoroutine = StartCoroutine(PlayRepeatlyCoroutine());
     }
 
     public void StopAll()
     {
-        StopAllCoroutines();
+        StopCoroutine(runningCoroutine);
         onSequenceStop?.Invoke();
     }
 
     IEnumerator PlayRepeatlyCoroutine()
     {
+        isRunning = true;
+
         do
         {
             foreach (var sequence in sequences)
@@ -34,5 +39,7 @@ public class SequencePlayer : MonoBehaviour
             }
 
         } while (playRepeatly);
+
+        isRunning = false;
     }
 }
