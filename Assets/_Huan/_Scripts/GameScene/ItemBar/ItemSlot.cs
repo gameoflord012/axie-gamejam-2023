@@ -49,6 +49,7 @@ public class ItemSlot : AbstractItemSlot
         else
         {
             priceText.color = Color.red;
+            Deselect();
             m_ItemSlotQuery.SetSelectable(false);
         }
     }
