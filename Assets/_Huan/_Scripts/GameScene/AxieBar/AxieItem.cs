@@ -9,5 +9,6 @@ public class AxieItem : AbstractItem
     public override void PlaceItem(Vector2 position)
     {
         Instantiate(axie.prefab, position, Quaternion.identity);
+        GetComponentInParent<AxieItemSlot>().StartCooldown();
     }
 }
