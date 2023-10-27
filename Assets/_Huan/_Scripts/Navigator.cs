@@ -30,4 +30,9 @@ public class Navigator : MonoBehaviour
     {
         // Do pause game
     }
+
+    public void ContinueGame()
+    {
+        // Do continue game
+    }
 }

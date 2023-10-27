@@ -19,7 +19,7 @@ public class CoinManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateCoin(9);        
+        UpdateCoin(10);        
     }
 
     private void UpdateCoin(int newValue)
