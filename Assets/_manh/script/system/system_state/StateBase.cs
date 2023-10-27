@@ -10,6 +10,15 @@ public class StateBase : MonoBehaviour
 
     [SerializeField] bool includeInAntState = true;
 
+    [SerializeField] bool autoPlayAndStopSequence = true;
+
+    SequencePlayer[] sequences = { };
+
+    private void Start()
+    {
+        sequences = transform.GetComponentsInChildren<SequencePlayer>();
+    }
+
     public StateTransition[] GetTransitions()
     {
         return GetComponentsInChildren<StateTransition>();
@@ -20,12 +29,28 @@ public class StateBase : MonoBehaviour
 
     public void StateEnterInternal()
     {
+        if(autoPlayAndStopSequence)
+        {
+            foreach (var sequence in sequences)
+            {
+                sequence.PlayAll();
+            }
+        }
+
         StateEnter();
         onStateEnter?.Invoke();
     }
 
     public void StateExitInternal()
     {
+        if (autoPlayAndStopSequence)
+        {
+            foreach (var sequence in sequences)
+            {
+                sequence.StopAll();
+            }
+        }
+
         StateExit();
         onStateExit?.Invoke();
     }
