@@ -6,8 +6,7 @@ using UnityEngine;
 public class ItemSO : ScriptableObject
 {
     public string name;
-    public int id;
     public int price;
-    public GameObject prefab;
+    public int value;
     public Sprite sprite;
 }

@@ -64,6 +64,14 @@ PrefabInstance:
       propertyPath: sequences.Array.data[3]
       value: 
       objectReference: {fileID: 8547415368066851921}
+    - target: {fileID: 5123258006644268579, guid: a96cd9acbafded5419b2bcf2f6123c34, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5123258006644268579, guid: a96cd9acbafded5419b2bcf2f6123c34, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5157757725712252235, guid: a96cd9acbafded5419b2bcf2f6123c34, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -149,9 +157,6 @@ MonoBehaviour:
       m_Calls: []
   disable: 0
   delayBeforePlaying: 0
-  onMissleReached:
-    m_PersistentCalls:
-      m_Calls: []
   spawner: {fileID: 0}
   attacker: {fileID: 0}
 --- !u!114 &8547415368066851921 stripped

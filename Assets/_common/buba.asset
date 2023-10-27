@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: buba
   m_EditorClassIdentifier: 
   name: buba
-  placementCost: 0
-  cooldownTime: 0
+  placementCost: 10
+  cooldownTime: 8
   id: 0
   prefab: {fileID: 5134385360844970857, guid: 620483e855ca86d45a6d69dce214feb5, type: 3}
   sprite: {fileID: 233227185538982242, guid: 8b41d1567acd2439890c13d66bf97550, type: 3}

@@ -76,6 +76,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: defender-white
       objectReference: {fileID: 0}
+    - target: {fileID: 5880601552219903319, guid: cef37892429024243a139694418c5a6b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880601552219903319, guid: cef37892429024243a139694418c5a6b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7129095416427602144, guid: cef37892429024243a139694418c5a6b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.39
@@ -86,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: ffda6c98f4b4bd943b7a7600eff41e2b, type: 2}
     - target: {fileID: 9090556149946330182, guid: cef37892429024243a139694418c5a6b, type: 3}
       propertyPath: health
-      value: 20
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4021508337161658556, guid: cef37892429024243a139694418c5a6b, type: 3}

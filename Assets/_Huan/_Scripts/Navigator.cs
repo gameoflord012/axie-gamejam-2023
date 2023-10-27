@@ -9,6 +9,7 @@ public class Navigator : MonoBehaviour
     public void LoadGameScene()
     {
         SceneManager.LoadScene("H_Game");
+        Time.timeScale = 1f;
     }
 
     public void LoadSettings()
@@ -28,11 +29,12 @@ public class Navigator : MonoBehaviour
 
     public void PauseGame()
     {
-        // Do pause game
+        Time.timeScale = 0f;
     }
 
     public void ContinueGame()
     {
         // Do continue game
+        Time.timeScale = 1f;
     }
 }

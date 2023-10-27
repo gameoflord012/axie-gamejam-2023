@@ -11,7 +11,7 @@ public class Item : AbstractItem
         Debug.Log("Placed item: " + item.name);
     }
 
-    public int GetPrice()
+    public override int GetPrice()
     {
         return item.price;
     }

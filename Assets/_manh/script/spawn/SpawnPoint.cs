@@ -19,4 +19,9 @@ public class SpawnPoint : MonoBehaviour
             Instantiate(spawn, transform.position + (Vector3)rand, Quaternion.identity);
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, randomOffset);
+    }
 }
