@@ -7,10 +7,11 @@ using UnityEngine;
 public class AnimationPlayer : MonoBehaviour
 {
     [SerializeField] SkeletonAnimation skeleton;
-    [SerializeField] string animationName;
+    [SerializeField] string stateName;
     [SerializeField] bool doRepeat = true;
 
     Spine.AnimationState animationState;
+    AnimationLoader animationLoader;
 
     private void Awake()
     {
@@ -22,9 +23,14 @@ public class AnimationPlayer : MonoBehaviour
         animationState = skeleton.AnimationState;
     }
 
+    private void Start()
+    {
+        animationLoader = transform.FindSibling<AnimationLoader>();
+    }
+
     public void PlayAnimation()
     {
-        animationState.SetAnimation(0, animationName, doRepeat);
+        animationState.SetAnimation(0, animationLoader.GetAnimation(stateName), doRepeat);
     }
 
     public void StopAnimation()
