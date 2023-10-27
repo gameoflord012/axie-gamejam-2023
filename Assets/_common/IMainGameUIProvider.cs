@@ -14,4 +14,6 @@ public interface IMainGameUIProvider
 
     public float GetMaxTime();
     public float GetCurrentTime();
+
+
 }
