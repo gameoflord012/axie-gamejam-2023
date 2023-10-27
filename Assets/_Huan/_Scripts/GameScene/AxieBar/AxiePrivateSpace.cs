@@ -15,6 +15,7 @@ public class AxiePrivateSpace : MonoBehaviour, IPointerEnterHandler, IPointerExi
         if (ItemPlacingManager.Instance.selectingAxie == false && ItemPlacingManager.Instance.selectingItem == true)
         {
             UI_Event.Gameplay.OnUseItem.Invoke(((Item)ItemPlacingManager.Instance.selectedItem).item, canvas.gameObject);
+            Debug.Log("Use item" + ((Item)ItemPlacingManager.Instance.selectedItem).item + " " + canvas.gameObject);
         }
     }
 
