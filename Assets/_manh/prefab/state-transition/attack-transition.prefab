@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3479085918723837145}
-  - component: {fileID: 7596308807467630413}
+  - component: {fileID: 6800761049684870586}
   m_Layer: 0
   m_Name: attack-transition
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7596308807467630413
+--- !u!114 &6800761049684870586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,15 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7131298773362518024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48a4650c3e8166342ae9890157c310a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 6664317469feebb40b18f8fe5ee43173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextState: attack
+  nextState: idle
   reverseCondition: 0
   alwayTransition: 0
   canTransition: 0
-  attackCollider: {fileID: 0}
-  attackTriggerTags:
-  - monster-attack-trigger
-  - defender-attack-trigger
-  transitionAmount: 0
+  traisitionWhenHaveTargets: 0

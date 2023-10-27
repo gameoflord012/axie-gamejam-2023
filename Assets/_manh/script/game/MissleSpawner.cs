@@ -35,6 +35,21 @@ public class MissleSpawner : MonoBehaviour
         return SpawnMissle(followTransform);
     }
 
+    public MissleNav SpawnTo(Health health)
+    {
+        var missle = SpawnMissle(health.transform);
+        missle.GetComponentInChildren<Attacker>().WhiteList.Add(health);
+        return missle;
+    }
+
+    public void SpawnRange(Health[] healths)
+    {
+        for (int i = 0; i < Mathf.Min(healths.Count(), maxMissleSpawnCount); i++)
+        {
+            SpawnTo(healths[i]);
+        }
+    }
+
     public void SpawnRange(Transform[] followTransform)
     {
         for (int i = 0; i < Mathf.Min(followTransform.Count(), maxMissleSpawnCount); i++)

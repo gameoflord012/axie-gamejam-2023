@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1787023861237025308, guid: cef37892429024243a139694418c5a6b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.84
+      value: -5.87
       objectReference: {fileID: 0}
     - target: {fileID: 1787023861237025308, guid: cef37892429024243a139694418c5a6b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.67
+      value: -1.26
       objectReference: {fileID: 0}
     - target: {fileID: 1787023861237025308, guid: cef37892429024243a139694418c5a6b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -62,11 +62,15 @@ PrefabInstance:
       objectReference: {fileID: 8962688451254274873, guid: 6d4fe827c8eb86f4995e31c8839edf39, type: 3}
     - target: {fileID: 2348478984698861862, guid: cef37892429024243a139694418c5a6b, type: 3}
       propertyPath: maxMissleSpawnCount
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2348478984698861862, guid: cef37892429024243a139694418c5a6b, type: 3}
       propertyPath: destroyWhenMissleReached
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348478984698861862, guid: cef37892429024243a139694418c5a6b, type: 3}
+      propertyPath: onMissleReached.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5671359784959416542, guid: cef37892429024243a139694418c5a6b, type: 3}
       propertyPath: m_Name

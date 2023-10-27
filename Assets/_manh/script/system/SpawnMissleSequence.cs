@@ -17,7 +17,7 @@ public class SpawnMissleSequence : BaseSequence
 
     protected override IEnumerator GetSequenceImp()
     {
-        spawner.SpawnRange(attacker.GetAttackTargets().Select(target => target.transform).ToArray());
+        spawner.SpawnRange(attacker.GetAttackTargets().ToArray());
         yield break;
     }
 }

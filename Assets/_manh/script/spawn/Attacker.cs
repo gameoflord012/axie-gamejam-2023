@@ -12,9 +12,15 @@ public class Attacker : MonoBehaviour
     [SerializeField] uint damage;
     [SerializeField] bool isAreaAttack = false;
     [SerializeField] bool autoDealDamageWhenTouch = false;
+
+    List<Health> whiteList = new();
+
     [SerializeField] bool debug;
 
     ColliderFilter attackTrigger;
+
+    public uint Damage { get => damage; set => damage = value; }
+    public List<Health> WhiteList { get => whiteList; set => whiteList = value; }
 
     private void Awake()
     {
@@ -40,8 +46,6 @@ public class Attacker : MonoBehaviour
         }
     }
 
-    public uint Damage { get => damage; set => damage = value; }
-
     public Health GetAttackTarget()
     {
         return GetAttackTargets().Count() > 0 ? GetAttackTargets().First() : null;
@@ -55,19 +59,24 @@ public class Attacker : MonoBehaviour
             ToArray();
     }
 
-    public void DealDamage()
+    public void DealDamageAll()
     {
         foreach(var health in GetAttackTargets())
         {
-            health.UpdateHealth(this);
-            onAttackerAttackTransform?.Invoke(health.transform);
-
+            DealDamageTo(health);
             if (!isAreaAttack) break;
         }
     }
 
     void OnAttackerTouchHealth(Collider2D collider2D)
     {
-        collider2D.GetComponent<Health>().UpdateHealth(this);
+        DealDamageTo(collider2D.GetComponent<Health>());
+    }
+
+    void DealDamageTo(Health health)
+    {
+        if (WhiteList.Count > 0 && !WhiteList.Contains(health)) return;
+        health.UpdateHealth(this);
+        onAttackerAttackTransform?.Invoke(health.transform);
     }
 }
