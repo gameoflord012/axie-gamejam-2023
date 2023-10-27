@@ -6,6 +6,11 @@ public class AxieItem : AbstractItem
 {
     public AxieSO axie;
 
+    private void Start()
+    {
+        image.sprite = axie.sprite;  
+    }
+
     public override void PlaceItem(Vector2 position)
     {
         Instantiate(axie.prefab, position, Quaternion.identity);

@@ -28,13 +28,13 @@ public class CoinManager : MonoBehaviour
         coinText.text = coin.ToString();
     }
 
-    private void AddCoin(int value)
+    public void AddCoin(int value)
     {
         coin += value;
         coinText.text = coin.ToString();
     }
 
-    private bool UseCoin(int value)
+    public bool UseCoin(int value)
     {
         if (value > coin)
             return false;

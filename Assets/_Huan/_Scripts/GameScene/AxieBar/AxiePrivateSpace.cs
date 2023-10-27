@@ -14,8 +14,11 @@ public class AxiePrivateSpace : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         if (ItemPlacingManager.Instance.selectingAxie == false && ItemPlacingManager.Instance.selectingItem == true)
         {
-            UI_Event.Gameplay.OnUseItem.Invoke(((Item)ItemPlacingManager.Instance.selectedItem).item, canvas.gameObject);
-            Debug.Log("Use item" + ((Item)ItemPlacingManager.Instance.selectedItem).item + " " + canvas.gameObject);
+            ItemSO usedItem = ((Item)ItemPlacingManager.Instance.selectedItem).item;
+            UI_Event.Gameplay.OnUseItem.Invoke(usedItem, canvas.gameObject);
+
+            CoinManager.Instance.UseCoin(usedItem.price);
+            Debug.Log("Use item" + usedItem.name + " " + canvas.gameObject);
         }
     }
 

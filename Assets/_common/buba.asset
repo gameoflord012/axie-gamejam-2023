@@ -17,4 +17,4 @@ MonoBehaviour:
   cooldownTime: 0
   id: 0
   prefab: {fileID: 5134385360844970857, guid: 620483e855ca86d45a6d69dce214feb5, type: 3}
-  sprite: {fileID: 21300000, guid: f6704f8c05d9a46699245bbfa68d7db9, type: 3}
+  sprite: {fileID: 233227185538982242, guid: 8b41d1567acd2439890c13d66bf97550, type: 3}

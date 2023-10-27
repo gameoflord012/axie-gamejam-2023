@@ -43,7 +43,7 @@ public class ItemSlot : AbstractItemSlot
 
         if (coin >= item.GetPrice())
         {
-            priceText.color = Color.yellow;
+            priceText.color = Color.white;
             m_ItemSlotQuery.SetSelectable(true);
         }
         else
