@@ -40,7 +40,7 @@ public abstract class AbstractItemSlot : MonoBehaviour
             cooldown -= 1;
             cooldownText.text = cooldown.ToString();
             cooldownSlider.value = cooldown;
-            Debug.Log("Item " + gameObject.name + " cooldown = " + cooldown);
+            //Debug.Log("Item " + gameObject.name + " cooldown = " + cooldown);
 
             yield return new WaitForSeconds(1);
         }

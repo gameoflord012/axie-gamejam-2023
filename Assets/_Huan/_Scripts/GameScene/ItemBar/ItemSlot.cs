@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.PlayerLoop;
 
 public class ItemSlot : AbstractItemSlot
 {
     [SerializeField] private TMP_Text priceText;
+    IMainGameUIProvider uiProvider;
 
     private void Start()
     {
-        H_Events.Coin.OnCoinChange.AddListener(UpdatePriceTag);
+        uiProvider = transform.FindSibling<IMainGameUIProvider>();
+    }
 
+    private void Update()
+    {
         UpdatePriceTag();
     }
 
@@ -25,7 +30,7 @@ public class ItemSlot : AbstractItemSlot
 
     private void UpdatePriceTag()
     {
-        int coin = CoinManager.Instance.GetCoin();
+        int coin = uiProvider.GetCurrentCoin();
         Item item = (Item) GetItemInSlot();
 
         if (item == null)

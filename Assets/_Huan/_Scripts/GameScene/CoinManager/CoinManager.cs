@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CoinManager : MonoBehaviour, ICoinUIQuery
+public class CoinManager : MonoBehaviour
 {
     public static CoinManager Instance { get; private set; }
+    public int Coin { get => coin; }
 
     public TMP_Text coinText;
 
@@ -41,10 +42,5 @@ public class CoinManager : MonoBehaviour, ICoinUIQuery
         coin -= value;
         coinText.text = coin.ToString();
         return true;
-    }
-
-    public int GetCoin()
-    {
-        return coin;
     }
 }

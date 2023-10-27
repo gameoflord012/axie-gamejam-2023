@@ -9,18 +9,31 @@ public class HealthBar : MonoBehaviour
     public Slider healthSlider;
     public TMP_Text healthText;
 
+    IMainGameUIProvider uiProvider;
+
     private float maxHealth = 100;
     private float curHealth;
 
+    public float MaxHealth 
+    { 
+        get => maxHealth; 
+        set { maxHealth = value; healthSlider.maxValue = value; }
+    }
+
     private void Awake()
     {
-        curHealth = maxHealth;
-        healthSlider.maxValue = maxHealth;
+        uiProvider = transform.FindSibling<IMainGameUIProvider>();
+
+        curHealth = MaxHealth;
+        healthSlider.maxValue = MaxHealth;
         healthSlider.value = curHealth;
         healthText.text = curHealth.ToString();
+    }
 
-        H_Events.UI_HealthBar.OnBaseHealthIncrease.AddListener(OnHealthIncrease);
-        H_Events.UI_HealthBar.OnBaseHealthDecrease.AddListener(OnHealthDecrease);
+    private void Update()
+    {
+        OnHealthChanged(uiProvider.GetBaseHealth());
+        MaxHealth = uiProvider.GetBaseMaxHealth();
     }
 
     //TODO: SetHealth
@@ -33,8 +46,8 @@ public class HealthBar : MonoBehaviour
     public void OnHealthIncrease(float value)
     {
         curHealth += value;
-        if (curHealth > maxHealth)
-            curHealth = maxHealth;
+        if (curHealth > MaxHealth)
+            curHealth = MaxHealth;
 
         healthSlider.value = curHealth;
     }   
