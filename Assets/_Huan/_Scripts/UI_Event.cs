@@ -13,5 +13,7 @@ public static class UI_Event
         
         // true la win, false la lose
         public static UnityEvent<bool> OnGameOver = new UnityEvent<bool>();
+
+        public static UnityEvent<Vector2, int, Color> OnDamagePopup = new UnityEvent<Vector2, int, Color>();
     }
 }
