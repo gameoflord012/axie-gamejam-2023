@@ -14,7 +14,7 @@ public class StateBase : MonoBehaviour
 
     SequencePlayer[] sequences = { };
 
-    private void Start()
+    private void Awake()
     {
         sequences = transform.GetComponentsInChildren<SequencePlayer>();
     }
