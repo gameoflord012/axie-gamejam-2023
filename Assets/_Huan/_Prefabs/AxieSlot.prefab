@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 3935784204103844609}
   - component: {fileID: 2152558713616990735}
   - component: {fileID: 2641516263884311242}
+  - component: {fileID: 5568189506857068898}
   m_Layer: 5
   m_Name: AxieSlot
   m_TagString: Untagged
@@ -359,6 +360,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &5568189506857068898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371945042847687393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a727791740dfa6479e85908fb902cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canHover: 1
+  childOriSize: {x: 140, y: 140}
 --- !u!1 &3336808161164013093
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5e4a28d2ce0574d93093dffbf7394d, type: 3}
   m_Name: defender-buba
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 150
   maxSpeed: 2
-  baseDamage: 5
+  baseDamage: 50

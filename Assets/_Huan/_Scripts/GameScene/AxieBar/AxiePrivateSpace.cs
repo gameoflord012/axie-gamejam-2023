@@ -16,9 +16,7 @@ public class AxiePrivateSpace : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             Item usedItem = ((Item)ItemPlacingManager.Instance.selectedItem);
 
-            CoinManager.Instance.UseCoin(usedItem.GetPrice());
             usedItem.PlaceItem(transform);
-            Debug.Log("Use item" + usedItem.name + " " + canvas.gameObject);
         }
     }
 

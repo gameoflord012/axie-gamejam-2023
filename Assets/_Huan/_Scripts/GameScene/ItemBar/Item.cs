@@ -13,6 +13,7 @@ public class Item : AbstractItem
 
     public void PlaceItem(Transform target)
     {
+        CoinManager.Instance.UseCoin(GetPrice());
         target.FindSibling<Health>().Heal(item.value);
     }
 

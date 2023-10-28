@@ -20,15 +20,19 @@ public class Health : MonoBehaviour
 
     public void UpdateHealth(Attacker attacker)
     {
-        if(attacker.Damage >= GetHealth())
+        uint dmg = attacker.Damage;
+        
+        if(dmg >= GetHealth())
         {
             health = 0;
             onHealthReachZero.Invoke();
         }
         else
         {
-            health -= (uint) Random.Range(attacker.Damage - 10, attacker.Damage);
+            health -= dmg;
         }
+
+        UI_Event.Gameplay.OnDamagePopup.Invoke(transform.position, (int)dmg, Color.red);
     }
 
     public void Heal(uint value)
@@ -41,5 +45,7 @@ public class Health : MonoBehaviour
         {
             health += value;
         }
+
+        UI_Event.Gameplay.OnDamagePopup.Invoke(transform.position, (int)value, Color.green);
     }    
 }
