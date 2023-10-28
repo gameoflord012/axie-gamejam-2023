@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: to-die
       objectReference: {fileID: 0}
+    - target: {fileID: 6364884466146995307, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: onStateEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6486265946027269578, guid: 9105085023deb884fbc790aae9913033, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

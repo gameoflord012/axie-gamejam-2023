@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Spine;
 using Spine.Unity;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class AnimationPlayer : MonoBehaviour
@@ -9,12 +10,12 @@ public class AnimationPlayer : MonoBehaviour
     [SerializeField] SkeletonAnimation skeleton;
     [SerializeField] string stateName;
     [SerializeField] bool doRepeat = true;
+    [SerializeField] bool stopPlayingAnimation = false;
 
     Spine.AnimationState animationState;
     AnimationLoader animationLoader;
 
     [SerializeField] [ReadOnly] int currentAnimationIndex;
-    [SerializeField] [ReadOnly] bool stopPlayingAnimation = false;
     string[] currentAnimations;
 
     private void Awake()
@@ -26,43 +27,45 @@ public class AnimationPlayer : MonoBehaviour
 
         animationState = skeleton.AnimationState;
         animationLoader = transform.FindSibling<AnimationLoader>();
+
+        currentAnimations = animationLoader.GetAnimation(stateName);
+        stopPlayingAnimation = true;
+
+        animationState.Complete += HandleAnimationComplete;
     }
 
     public void PlayAnimation()
     {
-        currentAnimations = animationLoader.GetAnimation(stateName);
+
         currentAnimationIndex = 0;
         stopPlayingAnimation = false;
+
         animationState.ClearTracks();
-
-        animationState.Complete += HandleAnimationComplete;
-        PlayNextAnimation();
-    }
-
-    void PlayNextAnimation()
-    {
-        if(currentAnimationIndex >= currentAnimations.Length)
-        {
-            if(doRepeat)
-            {
-                currentAnimationIndex = 0;
-            }
-            else
-            {
-                return;
-            }
-        }
-
-        if(!stopPlayingAnimation)
-        {
-            animationState.AddAnimation(0, currentAnimations[currentAnimationIndex], false, 0);
-        }
+        PlayCurrentAnimation();
     }
 
     private void HandleAnimationComplete(TrackEntry track)
     {
+        if (stopPlayingAnimation) return;
+
         currentAnimationIndex++;
-        PlayNextAnimation();
+
+        if(currentAnimationIndex >= currentAnimations.Length)
+        {
+            if (doRepeat) currentAnimationIndex = 0;
+            else
+            {
+                StopAnimation();
+                return;
+            }
+        }
+
+        PlayCurrentAnimation();
+    }
+
+    private void PlayCurrentAnimation()
+    {
+        animationState.AddAnimation(0, currentAnimations[currentAnimationIndex], false, 0);
     }
 
     public void StopAnimation()

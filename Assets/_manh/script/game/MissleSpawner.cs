@@ -18,6 +18,13 @@ public class MissleSpawner : MonoBehaviour
     [SerializeField] bool spawnAtDestination = false;
     [SerializeField] bool debug;
 
+    private Attacker figureAttacker;
+
+    private void Awake()
+    {
+        figureAttacker = transform.FindSibling<Attacker>();
+    }
+
     private void Update()
     {
         if(debug && Input.GetKeyDown(KeyCode.Space))
@@ -30,15 +37,19 @@ public class MissleSpawner : MonoBehaviour
         }
     }
 
-    public MissleNav SpawnTo(Transform followTransform)
+    private MissleNav SpawnTo(Transform followTransform)
     {
         return SpawnMissle(followTransform);
     }
 
-    public MissleNav SpawnTo(Health health)
+    private MissleNav SpawnTo(Health health)
     {
         var missle = SpawnMissle(health.transform);
-        missle.GetComponentInChildren<Attacker>().WhiteList.Add(health);
+        Attacker attacker = missle.GetComponentInChildren<Attacker>();
+        attacker.WhiteList.Add(health);
+
+        attacker.Damage += figureAttacker.Damage;
+
         return missle;
     }
 
@@ -50,7 +61,7 @@ public class MissleSpawner : MonoBehaviour
         }
     }
 
-    public void SpawnRange(Transform[] followTransform)
+    private void SpawnRange(Transform[] followTransform)
     {
         for (int i = 0; i < Mathf.Min(followTransform.Count(), maxMissleSpawnCount); i++)
         {

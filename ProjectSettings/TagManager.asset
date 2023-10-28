@@ -17,6 +17,7 @@ TagManager:
   - attack-trigger
   - body-trigger
   - figure-model
+  - monster-body-trigger-flying
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - defender-selectable
   - coin
   - 
-  - 
+  - Special-ui
   - 
   - 
   - 

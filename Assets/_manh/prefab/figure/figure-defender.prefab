@@ -946,6 +946,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4091274445598409921, guid: 8456cd7826160a94a9459bf1b314a1be, type: 3}
+      propertyPath: rescanNavTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091274445598409921, guid: 8456cd7826160a94a9459bf1b314a1be, type: 3}
       propertyPath: onAgentClearPath.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
