@@ -15,5 +15,12 @@ public class AxieItem : AbstractItem
     {
         Instantiate(axie.prefab, position, Quaternion.identity);
         GetComponentInParent<AxieItemSlot>().StartCooldown();
+
+        CoinManager.Instance.UseCoin(axie.placementCost);
+    }
+
+    public override int GetPrice()
+    {
+        return axie.placementCost;
     }
 }

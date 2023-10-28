@@ -8,17 +8,6 @@ using UnityEngine.PlayerLoop;
 public class ItemSlot : AbstractItemSlot
 {
     [SerializeField] private TMP_Text priceText;
-    IMainGameUIProvider uiProvider;
-
-    private void Start()
-    {
-        uiProvider = transform.FindSibling<IMainGameUIProvider>();
-    }
-
-    private void Update()
-    {
-        UpdatePriceTag();
-    }
 
     public override void OnSlotSelect()
     {
@@ -28,17 +17,17 @@ public class ItemSlot : AbstractItemSlot
         }
     }
 
-    private void UpdatePriceTag()
+    protected override void UpdatePriceTag()
     {
         int coin = uiProvider.GetCurrentCoin();
-        Item item = (Item) GetItemInSlot();
+        Item item = (Item)GetItemInSlot();
 
         if (item == null)
         {
             priceText.text = "0";
             return;
         }
-        
+
         priceText.text = item.GetPrice().ToString();
 
         if (coin >= item.GetPrice())
@@ -49,7 +38,9 @@ public class ItemSlot : AbstractItemSlot
         else
         {
             priceText.color = Color.red;
+            Deselect();
             m_ItemSlotQuery.SetSelectable(false);
+            button.interactable = false;
         }
     }
 }

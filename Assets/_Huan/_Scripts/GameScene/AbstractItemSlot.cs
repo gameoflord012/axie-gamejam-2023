@@ -10,6 +10,7 @@ public abstract class AbstractItemSlot : MonoBehaviour
     [SerializeField] protected Button button;
 
     protected IItemSlotQuery m_ItemSlotQuery;
+    protected IMainGameUIProvider uiProvider;
     [SerializeField] protected Color selectedColor, notSelectedColor;
     [SerializeField] protected TMP_Text cooldownText;
     [SerializeField] protected Slider cooldownSlider;
@@ -17,10 +18,17 @@ public abstract class AbstractItemSlot : MonoBehaviour
 
     protected void Awake()
     {
-        m_ItemSlotQuery = GetComponent<IItemSlotQuery>();    
+        uiProvider = transform.FindSibling<IMainGameUIProvider>();
+        m_ItemSlotQuery = GetComponent<IItemSlotQuery>();
+    }
+
+    private void Update()
+    {
+        UpdatePriceTag();
     }
 
     public abstract void OnSlotSelect();
+    protected abstract void UpdatePriceTag();
 
     public AbstractItem GetItemInSlot()
     {

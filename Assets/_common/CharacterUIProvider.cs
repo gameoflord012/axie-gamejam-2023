@@ -14,15 +14,6 @@ public class CharacterUIProvider : MonoBehaviour, ICharacterUIQuery
         healthBar = GetComponentInChildren<CharacterHealthBar>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Minus) == true)
-            curHealth = Mathf.Clamp(curHealth - 15, 0, maxHealth);
-
-        if (Input.GetKeyDown(KeyCode.Equals) == true)
-            curHealth = Mathf.Clamp(curHealth + 10, 0, maxHealth);
-    }
-
     public float GetCurentHealth()
     {
         return transform.FindSibling<Health>().GetHealth();

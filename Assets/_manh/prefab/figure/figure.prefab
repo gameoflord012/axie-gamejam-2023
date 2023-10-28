@@ -967,7 +967,7 @@ MonoBehaviour:
   agentMaxDis: 25
   obstacle:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!114 &4091274445598409921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,6 +1118,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9185605779934435596}
     m_Modifications:
+    - target: {fileID: 784329628237437536, guid: 9a3a577be804df643ba39ca058848fa2, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 784329628237437536, guid: 9a3a577be804df643ba39ca058848fa2, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1429565261
+      objectReference: {fileID: 0}
     - target: {fileID: 2894829343225814553, guid: 9a3a577be804df643ba39ca058848fa2, type: 3}
       propertyPath: m_Name
       value: figure-model

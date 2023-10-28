@@ -18,12 +18,15 @@ public class MapViewer : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        Vector3 distance = originalMousePos - mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 newPos = mainCam.transform.position + distance;
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            Vector3 distance = originalMousePos - mainCam.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 newPos = mainCam.transform.position + distance;
 
-        mainCam.transform.position = new Vector3(Mathf.Clamp(newPos.x, originalCamPos.x - boundary.x, originalCamPos.x + boundary.x),
-                                                 Mathf.Clamp(newPos.y, originalCamPos.y - boundary.y, originalCamPos.y + boundary.y),
-                                                 -10);
+            mainCam.transform.position = new Vector3(Mathf.Clamp(newPos.x, originalCamPos.x - boundary.x, originalCamPos.x + boundary.x),
+                                                     Mathf.Clamp(newPos.y, originalCamPos.y - boundary.y, originalCamPos.y + boundary.y),
+                                                     -10);
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
