@@ -13,6 +13,7 @@ public class StateController : MonoBehaviour
     [SerializeField] string currentStateString;
 
     StateBase currentState;
+    [SerializeField] bool debug = false;
 
     private void Start()
     {
@@ -61,6 +62,9 @@ public class StateController : MonoBehaviour
 
     public void ChangeToState(string stateName)
     {
+        if(debug)
+            Debug.Log("Change to state " + stateName);
+
         if(getState.ContainsKey(stateName))
         {
             currentState?.StateExitInternal();

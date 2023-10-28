@@ -13,10 +13,12 @@ public class StateBase : MonoBehaviour
     [SerializeField] bool autoPlayAndStopSequence = true;
 
     SequencePlayer[] sequences = { };
+    AnimationPlayer animationPlayer;
 
     private void Awake()
     {
         sequences = transform.GetComponentsInChildren<SequencePlayer>();
+        animationPlayer = GetComponentInChildren<AnimationPlayer>();
     }
 
     public StateTransition[] GetTransitions()
@@ -37,6 +39,8 @@ public class StateBase : MonoBehaviour
             }
         }
 
+        animationPlayer.PlayAnimation();
+
         StateEnter();
         onStateEnter?.Invoke();
     }
@@ -50,6 +54,8 @@ public class StateBase : MonoBehaviour
                 sequence.StopAll();
             }
         }
+
+        animationPlayer.StopAnimation();
 
         StateExit();
         onStateExit?.Invoke();
