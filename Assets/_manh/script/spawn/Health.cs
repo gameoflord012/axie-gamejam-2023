@@ -27,7 +27,7 @@ public class Health : MonoBehaviour
         }
         else
         {
-            health -= attacker.Damage;
+            health -= (uint) Random.Range(attacker.Damage - 10, attacker.Damage);
         }
     }
 

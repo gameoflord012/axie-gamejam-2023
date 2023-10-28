@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public abstract class AbstractItemSlot : MonoBehaviour
+public abstract class AbstractItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] protected Image image;
     [SerializeField] protected Button button;
@@ -15,11 +16,17 @@ public abstract class AbstractItemSlot : MonoBehaviour
     [SerializeField] protected TMP_Text cooldownText;
     [SerializeField] protected Slider cooldownSlider;
     protected int cooldown = 0;
+    [SerializeField] protected Vector2 itemOriSize;
+    protected GridLayoutGroup glg;
+    protected bool hoverAlow = true;
 
     protected void Awake()
     {
         uiProvider = transform.FindSibling<IMainGameUIProvider>();
         m_ItemSlotQuery = GetComponent<IItemSlotQuery>();
+
+        glg = GetComponent<GridLayoutGroup>();
+        itemOriSize = glg.cellSize;
     }
 
     private void Update()
@@ -62,10 +69,35 @@ public abstract class AbstractItemSlot : MonoBehaviour
     internal void Select()
     {
         image.color = selectedColor;
+        SetItemSize(1.1f * glg.cellSize);
+        hoverAlow = false;
     }
 
     internal void Deselect()
     {
         image.color = notSelectedColor;
+        SetItemSize(itemOriSize);
+
+    }
+
+    protected void SetItemSize(Vector2 value)
+    {
+        glg.cellSize = value;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (m_ItemSlotQuery.IsSelectable() == true && hoverAlow)
+        {
+            SetItemSize(1.1f * glg.cellSize);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (m_ItemSlotQuery.IsSelectable() == true && hoverAlow == true)
+        {
+            SetItemSize(itemOriSize);
+        }
     }
 }
