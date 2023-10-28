@@ -14,8 +14,7 @@ public class Coin : MonoBehaviour
     {
         // TODO: coin drop effect
 
-        //
-        value = 10;
+        
     }
 
     private void Update()
