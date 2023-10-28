@@ -17,6 +17,8 @@ public class TimelineManager : MonoBehaviour
 
         currentTime = maxTime;
         slider.maxValue = maxTime;
+
+        UI_Event.Gameplay.OnGameOver.AddListener(OnGameOver);
     }
 
     void Update()
@@ -34,5 +36,17 @@ public class TimelineManager : MonoBehaviour
     public float GetMaxTime()
     {
         return maxTime;
+    }
+
+    private void OnGameOver(bool victory)
+    {
+        if (victory == true)
+        {
+            Debug.Log("Victory!");
+        }
+        else
+        {
+            Debug.Log("Game over!");
+        }
     }
 }

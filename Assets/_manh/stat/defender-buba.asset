@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: defender-buba
   m_EditorClassIdentifier: 
   maxHealth: 150
-  maxSpeed: 1
+  maxSpeed: 0.5
   baseDamage: 50

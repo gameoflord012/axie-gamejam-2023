@@ -35,11 +35,20 @@ public class HealthBar : MonoBehaviour
     {
         MaxHealth = uiProvider.GetMaxHealth();
         curHealth = uiProvider.GetCurrentHealth();
+        if (curHealth <= 0)
+            return;
 
+        // Check n?u hp gi?m
         if (curHealth < healthSlider.value)
             CameraShake.Instance.Shake(0.5f, 0.2f);
 
         OnHealthChanged(curHealth);
+
+        // Check hp = 0
+        if (curHealth <= 0)
+        {
+            UI_Event.Gameplay.OnGameOver.Invoke(false);
+        }
     }
 
     //TODO: SetHealth
