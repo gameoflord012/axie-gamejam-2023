@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: misslePrefab
       value: 
       objectReference: {fileID: 8962688451254274873, guid: 3401a35d8f9333644bec35e06c6a78a8, type: 3}
+    - target: {fileID: 8716227104410776555, guid: 82873896a23b7ad4eb00b5e170b0be39, type: 3}
+      propertyPath: spawnAtDestination
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716227104410776555, guid: 82873896a23b7ad4eb00b5e170b0be39, type: 3}
+      propertyPath: maxMissleSpawnCount
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -116,13 +124,17 @@ PrefabInstance:
       value: to-die
       objectReference: {fileID: 0}
     - target: {fileID: 6527031520502119858, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: sequences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6527031520502119858, guid: 9105085023deb884fbc790aae9913033, type: 3}
       propertyPath: sequences.Array.data[1]
       value: 
       objectReference: {fileID: 6344006997021705433}
     - target: {fileID: 6527031520502119858, guid: 9105085023deb884fbc790aae9913033, type: 3}
       propertyPath: sequences.Array.data[2]
       value: 
-      objectReference: {fileID: 5932611704881064072}
+      objectReference: {fileID: 1735241514432719197}
     - target: {fileID: 6527031520502119858, guid: 9105085023deb884fbc790aae9913033, type: 3}
       propertyPath: sequences.Array.data[3]
       value: 
@@ -132,12 +144,16 @@ PrefabInstance:
       value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 7977678770649911024, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: debug
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977678770649911024, guid: 9105085023deb884fbc790aae9913033, type: 3}
       propertyPath: isAreaAttack
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7977678770649911024, guid: 9105085023deb884fbc790aae9913033, type: 3}
       propertyPath: onAttackerAttackTransform.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7977678770649911024, guid: 9105085023deb884fbc790aae9913033, type: 3}
       propertyPath: onAttackerAttackTransform.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -197,6 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 390121182091967019, guid: 9105085023deb884fbc790aae9913033, type: 3}
+    - {fileID: 4367900593018170519, guid: 9105085023deb884fbc790aae9913033, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7117503160625528000, guid: 9105085023deb884fbc790aae9913033, type: 3}
@@ -206,6 +223,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8435923621146341379, guid: 9105085023deb884fbc790aae9913033, type: 3}
       insertIndex: 3
       addedObject: {fileID: 6344006997021705433}
+    - targetCorrespondingSourceObject: {fileID: 8435923621146341379, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1735241514432719197}
   m_SourcePrefab: {fileID: 100100000, guid: 9105085023deb884fbc790aae9913033, type: 3}
 --- !u!4 &868996754486311135 stripped
 Transform:
@@ -239,17 +259,27 @@ MonoBehaviour:
   delayBeforePlaying: 0.2
   spawner: {fileID: 0}
   attacker: {fileID: 0}
---- !u!114 &5932611704881064072 stripped
+--- !u!114 &1735241514432719197
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4367900593018170519, guid: 9105085023deb884fbc790aae9913033, type: 3}
-  m_PrefabInstance: {fileID: 7982974055929234463}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007289649907856412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3416af8fc4c758347974b967d163dd46, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a78b7f1a83745f429b2f27c0a390f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSequenceStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onSequenceStop:
+    m_PersistentCalls:
+      m_Calls: []
+  disable: 0
+  delayBeforePlaying: 0
+  delayInSeconds: 1
 --- !u!114 &9181488447582808038 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1270590703303713785, guid: 9105085023deb884fbc790aae9913033, type: 3}

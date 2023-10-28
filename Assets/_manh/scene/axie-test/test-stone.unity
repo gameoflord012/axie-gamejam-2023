@@ -131,14 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 35835320521001711, guid: 7209c74f4a0fba64eb824799c435da53, type: 3}
-      propertyPath: debug
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 35835320521001711, guid: 7209c74f4a0fba64eb824799c435da53, type: 3}
-      propertyPath: onAttackerAttackTransform.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1241163216654846379, guid: 7209c74f4a0fba64eb824799c435da53, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -179,14 +171,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3773334849173862829, guid: 7209c74f4a0fba64eb824799c435da53, type: 3}
-      propertyPath: sequences.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3773334849173862829, guid: 7209c74f4a0fba64eb824799c435da53, type: 3}
-      propertyPath: sequences.Array.data[2]
-      value: 
-      objectReference: {fileID: 1463426043}
     - target: {fileID: 5134385360844970857, guid: 7209c74f4a0fba64eb824799c435da53, type: 3}
       propertyPath: m_Name
       value: defender-stone
@@ -195,22 +179,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6191954440737273432, guid: 7209c74f4a0fba64eb824799c435da53, type: 3}
-      propertyPath: spawnAtDestination
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6191954440737273432, guid: 7209c74f4a0fba64eb824799c435da53, type: 3}
-      propertyPath: maxMissleSpawnCount
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5932611704881064072, guid: 7209c74f4a0fba64eb824799c435da53, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2007289649907856412, guid: 7209c74f4a0fba64eb824799c435da53, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1463426043}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7209c74f4a0fba64eb824799c435da53, type: 3}
 --- !u!1001 &712191893
 PrefabInstance:
@@ -374,32 +346,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb2eaeb455a95234990558eadc6b4f35, type: 3}
---- !u!1 &1463426035 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2007289649907856412, guid: 7209c74f4a0fba64eb824799c435da53, type: 3}
-  m_PrefabInstance: {fileID: 382963303}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1463426043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463426035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a78b7f1a83745f429b2f27c0a390f33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onSequenceStart:
-    m_PersistentCalls:
-      m_Calls: []
-  onSequenceStop:
-    m_PersistentCalls:
-      m_Calls: []
-  disable: 0
-  delayBeforePlaying: 0
-  delayInSeconds: 1
 --- !u!1001 &1780525593
 PrefabInstance:
   m_ObjectHideFlags: 0
