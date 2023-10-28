@@ -20,6 +20,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3b924ca2ce0b14f0c93c96bd032e95eb, type: 2}
+    - target: {fileID: 2628078462267315045, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628078462267315045, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628078462267315045, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628078462267315045, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.04
+      objectReference: {fileID: 0}
     - target: {fileID: 2794108545870304714, guid: df1906825b44ac2469140ac52260e626, type: 3}
       propertyPath: holders.Array.data[3].animations.Array.size
       value: 2
@@ -40,9 +56,25 @@ PrefabInstance:
       propertyPath: holders.Array.data[3].animations.Array.data[1]
       value: action/move-forward
       objectReference: {fileID: 0}
+    - target: {fileID: 3119795485723283927, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.19200125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3119795485723283927, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.19200125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3119795485723283927, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.19200125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3119795485723283927, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 3166432608881953972, guid: df1906825b44ac2469140ac52260e626, type: 3}
       propertyPath: delayInSeconds
-      value: 2.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5851028624163309431, guid: df1906825b44ac2469140ac52260e626, type: 3}
       propertyPath: _animationName
@@ -54,11 +86,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: e7bb503cd21f84a6facba57897585f57, type: 2}
     - target: {fileID: 5866175247581002539, guid: df1906825b44ac2469140ac52260e626, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.49
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 5866175247581002539, guid: df1906825b44ac2469140ac52260e626, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.56
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 5866175247581002539, guid: df1906825b44ac2469140ac52260e626, type: 3}
       propertyPath: m_LocalPosition.z
@@ -95,6 +127,26 @@ PrefabInstance:
     - target: {fileID: 7857136833565885740, guid: df1906825b44ac2469140ac52260e626, type: 3}
       propertyPath: m_TagString
       value: monster-body-trigger-flying
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243599649853365200, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243599649853365200, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243599649853365200, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243599649853365200, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243599649853365200, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 8362124705874004781, guid: df1906825b44ac2469140ac52260e626, type: 3}
       propertyPath: sequences.Array.size
