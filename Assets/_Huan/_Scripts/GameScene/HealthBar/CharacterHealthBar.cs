@@ -17,6 +17,6 @@ public class CharacterHealthBar : MonoBehaviour
     private void Update()
     {
         healthSlider.maxValue = m_CharacterUIQuery.GetMaxHealth();
-        healthSlider.value = m_CharacterUIQuery.GetCurentHealth();
+        healthSlider.value = m_CharacterUIQuery.GetCurrentHealth();
     }
 }

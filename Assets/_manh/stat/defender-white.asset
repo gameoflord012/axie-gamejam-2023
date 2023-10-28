@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: defender-white
   m_EditorClassIdentifier: 
   maxHealth: 100
-  maxSpeed: 2.5
+  maxSpeed: 1.5
   baseDamage: 30

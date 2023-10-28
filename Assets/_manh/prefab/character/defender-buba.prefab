@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 2083692604261925936, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: stat
+      value: 
+      objectReference: {fileID: 11400000, guid: a18ff51936c6cab4ea0035cf7ee38216, type: 2}
     - target: {fileID: 2992704435101310838, guid: 9105085023deb884fbc790aae9913033, type: 3}
       propertyPath: m_Name
       value: defender-buba

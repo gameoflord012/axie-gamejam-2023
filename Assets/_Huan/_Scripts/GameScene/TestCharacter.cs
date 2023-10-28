@@ -18,7 +18,7 @@ public class TestCharacter : MonoBehaviour, ICharacterUIQuery
             curHealth = Mathf.Clamp(curHealth + 10, 0, maxHealth);
     }
 
-    public float GetCurentHealth()
+    public float GetCurrentHealth()
     {
         return curHealth;
     }

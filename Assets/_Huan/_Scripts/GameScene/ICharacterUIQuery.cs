@@ -2,5 +2,5 @@
 public interface ICharacterUIQuery
 {
     public float GetMaxHealth();
-    public float GetCurentHealth();
+    public float GetCurrentHealth();
 }

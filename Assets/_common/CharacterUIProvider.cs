@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class CharacterUIProvider : MonoBehaviour, ICharacterUIQuery
 {
-    private float maxHealth = 100;
-    private float curHealth = 100;
-
-    public float GetCurentHealth()
+    public float GetCurrentHealth()
     {
         return transform.FindSibling<Health>().GetHealth();
     }
