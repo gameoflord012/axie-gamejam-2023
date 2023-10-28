@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BigPotion
   m_EditorClassIdentifier: 
   name: BigPotion
-  price: 44
-  value: 50
+  price: 70
+  value: 100
   sprite: {fileID: 21300000, guid: a6b3586d6014b4e19b31c4b0456cdb74, type: 3}

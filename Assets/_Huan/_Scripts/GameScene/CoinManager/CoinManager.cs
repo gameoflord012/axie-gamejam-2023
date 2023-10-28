@@ -9,7 +9,7 @@ public class CoinManager : MonoBehaviour
     public int Coin { get => coin; }
 
     public TMP_Text coinText;
-    [SerializeField] private int starterCoin = 10;
+    [SerializeField] private int starterCoin = 200;
 
     private int coin;
 
