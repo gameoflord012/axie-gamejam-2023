@@ -18,5 +18,10 @@ public class CharacterHealthBar : MonoBehaviour
     {
         healthSlider.maxValue = m_CharacterUIQuery.GetMaxHealth();
         healthSlider.value = m_CharacterUIQuery.GetCurrentHealth();
+
+        if (healthSlider.value <= 0)
+        {
+            healthSlider.gameObject.SetActive(false);
+        }
     }
 }
