@@ -30,4 +30,16 @@ public class Health : MonoBehaviour
             health -= attacker.Damage;
         }
     }
+
+    public void Heal(uint value)
+    {
+        if (health + value >= maxHealth)
+        {
+            health = maxHealth;
+        }
+        else
+        {
+            health += value;
+        }
+    }    
 }
