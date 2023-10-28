@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpawnTimeline : MonoBehaviour
 {
-    [SerializeField] float timelineDuration = 5f;
+    float timelineDuration = 5f;
     [SerializeField] SpawnPoint[] spawners;
 
     [SerializeField][ReadOnly] float timer;
@@ -19,6 +19,7 @@ public class SpawnTimeline : MonoBehaviour
 
     private void BeginTimerline()
     {
+        timelineDuration = transform.FindSibling<UI_MainGameProvider>().GetMaxTime();
         timer = 0;
         spawnedIndex.Clear();
     }
