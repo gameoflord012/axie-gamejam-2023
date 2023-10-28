@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEngine.EventSystems;
 
 public class SelectableManager : MonoBehaviour
 {
@@ -20,6 +22,8 @@ public class SelectableManager : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
+            if (UIHelper.Current().IsPointerOverUIElement()) return;
+
             var col = Physics2D.Raycast(
                 Extension.GetMouseWorldPos(),
                 Vector2.zero, 0,
