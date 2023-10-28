@@ -27,7 +27,19 @@ public class Health : MonoBehaviour
         }
         else
         {
-            health -= attacker.Damage;
+            health -= (uint) Random.Range(attacker.Damage - 10, attacker.Damage);
         }
     }
+
+    public void Heal(uint value)
+    {
+        if (health + value >= maxHealth)
+        {
+            health = maxHealth;
+        }
+        else
+        {
+            health += value;
+        }
+    }    
 }

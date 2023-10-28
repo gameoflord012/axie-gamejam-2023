@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e245fc242f4b0f64caf7e47e99ddf0f0, type: 3}
-  m_Name: buba
+  m_Name: AxieWhite
   m_EditorClassIdentifier: 
-  name: buba
-  placementCost: 10
+  name: white
+  placementCost: 80
   cooldownTime: 8
   id: 0
-  prefab: {fileID: 5134385360844970857, guid: 620483e855ca86d45a6d69dce214feb5, type: 3}
-  sprite: {fileID: 233227185538982242, guid: 8b41d1567acd2439890c13d66bf97550, type: 3}
+  prefab: {fileID: 79854730225768416, guid: cbe285b2d79b5de4fab9b1a7db2ba6d1, type: 3}
+  sprite: {fileID: 21300000, guid: 0377a0be3b8214a1281f898a7fdd34e8, type: 3}

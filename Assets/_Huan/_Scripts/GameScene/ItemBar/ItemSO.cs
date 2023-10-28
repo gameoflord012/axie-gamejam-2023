@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemSO : ScriptableObject
 {
     public string name;
-    public int price;
-    public int value;
+    public uint price;
+    public uint value;
     public Sprite sprite;
 }

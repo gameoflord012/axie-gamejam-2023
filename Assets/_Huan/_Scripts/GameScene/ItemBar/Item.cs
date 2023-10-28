@@ -11,8 +11,13 @@ public class Item : AbstractItem
         Debug.Log("Placed item: " + item.name);
     }
 
+    public void PlaceItem(Transform target)
+    {
+        target.FindSibling<Health>().Heal(item.value);
+    }
+
     public override int GetPrice()
     {
-        return item.price;
+        return (int)item.price;
     }
 }
