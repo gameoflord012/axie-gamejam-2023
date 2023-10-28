@@ -251,6 +251,10 @@ PrefabInstance:
       value: monster-attack-trigger
       objectReference: {fileID: 0}
     - target: {fileID: 9160887942642722128, guid: 8456cd7826160a94a9459bf1b314a1be, type: 3}
+      propertyPath: _animationName
+      value: attack/ranged/cast-high
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160887942642722128, guid: 8456cd7826160a94a9459bf1b314a1be, type: 3}
       propertyPath: skeletonDataAsset
       value: 
       objectReference: {fileID: 11400000, guid: 14be820b28f614e7999e0433e684b6a8, type: 2}

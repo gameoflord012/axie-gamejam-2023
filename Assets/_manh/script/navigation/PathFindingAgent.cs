@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Algorithms;
 using Spine.Unity;
 using Unity.VisualScripting;
@@ -22,6 +23,7 @@ public class PathFindingAgent : MonoBehaviour
     [SerializeField] float distanceThreshold = 0.1f;
     [SerializeField] float rescanNavTime = 1f;
     [SerializeField] float speed = 2;
+    [SerializeField] [ReadOnly] Vector2 followPosition;
 
     PathFindingComponent pathFinding;
     List<Vector2> pathToGo = new();
@@ -38,6 +40,8 @@ public class PathFindingAgent : MonoBehaviour
     {
         pathFinding = GetComponent<PathFindingComponent>();
 
+        followPosition = agentTransform.position;
+
         if(!FollowTransform && !string.IsNullOrEmpty(targetFollowTag))
         {
             FollowTransform = GameObject.FindGameObjectWithTag(targetFollowTag)?.transform;
@@ -52,6 +56,8 @@ public class PathFindingAgent : MonoBehaviour
     private void FixedUpdate()
     {
         SimplifyPath();
+
+        followPosition = FollowTransform ? FollowTransform.position : followPosition;
 
         if (pathToGo.Count > 0)
         {
@@ -71,24 +77,36 @@ public class PathFindingAgent : MonoBehaviour
 
     IEnumerator FindPathCoroutine()
     {
-        yield return new WaitForFixedUpdate();
-
-        while (FollowTransform != null)
+        while (true)
         {
-            yield return pathFinding.GeneratePath(
-                pathToGo.Count > 0 ? pathToGo[0] : agentTransform.position,
-                //agentTransform.position,
-                FollowTransform.position);
+            yield return new WaitForFixedUpdate();
 
-            if (pathToGo.Count > 0)
+            if(IsAgentArriveDestination() || IsValidPathToGo())
             {
-                pathToGo.RemoveRange(1, pathToGo.Count - 1);
+                continue;
             }
 
-            pathToGo.AddRange(pathFinding.GetGenerateResult());
+            yield return pathFinding.GeneratePath(
+                agentTransform.position,
+                followPosition);
+
+            pathToGo = pathFinding.GetGenerateResult().ToList();
 
             yield return new WaitForSeconds(rescanNavTime);
         }
+    }
+
+    private bool IsValidPathToGo()
+    {
+        return 
+            pathToGo.Count == 0 && IsAgentArriveDestination() ||
+            pathToGo.Count > 0 &&
+            pathFinding.CheckPath(pathToGo) && Vector2.Distance(pathToGo.Last(), followPosition) < distanceThreshold;
+    }
+
+    private bool IsAgentArriveDestination()
+    {
+        return Vector2.Distance(agentTransform.position, followPosition) < distanceThreshold;
     }
 
     private void SimplifyPath()
@@ -109,7 +127,7 @@ public class PathFindingAgent : MonoBehaviour
     public void MoveTo(Vector2 destination)
     {
         pathToGo.Clear();
-        pathToGo.Add(destination);
+        followPosition = destination;
     }
 
     private void OnDrawGizmos()

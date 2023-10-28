@@ -21,6 +21,8 @@ public class PathFindingComponent : MonoBehaviour, IPathAgent
     int[] neighBourDirY = { 1, 0, -1, 0, 1, 1, -1, -1 };
     IPathFinder pathFinder;
     List<PathFinderNode> pathFindingResult = new();
+    Vector2 lastEnd;
+    Vector2 lastStart;
 
 
     // Start is called before the first frame update
@@ -33,19 +35,30 @@ public class PathFindingComponent : MonoBehaviour, IPathAgent
 
     public Vector2[] GetGenerateResult()
     {
-        List<Vector2> result = pathFindingResult.Select(node => GridToWorld(new Vector2Int(node.X, node.Y))).ToList();
+        List<Vector2> result = new() { lastStart };
+        result.AddRange(pathFindingResult.Select(node => GridToWorld(new Vector2Int(node.X, node.Y))));
+        result.Add(lastEnd);
 
         for (int idx = 1; idx < result.Count; idx++)
         {
             while (idx + 1 < result.Count &&
                 Passable(result[idx - 1], result[idx + 1]))
-
             {
                 result.RemoveAt(idx);
             }
         }
 
         return result.ToArray();
+    }
+
+    public bool CheckPath(List<Vector2> path)
+    {
+        for(int i = 1; i < path.Count; i++)
+        {
+            if (!Passable(path[i - 1], path[i])) return false;
+        }
+
+        return true;
     }
 
     // Update is called once per frame
@@ -61,6 +74,9 @@ public class PathFindingComponent : MonoBehaviour, IPathAgent
             new Point(endGrid.x, endGrid.y), 
             pathFindingResult,
             searchPerFixedUpdate);
+
+        lastStart = start;
+        lastEnd = end;
     }
 
     public Point[] GetNeighbours(Point node)

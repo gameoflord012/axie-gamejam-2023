@@ -57,16 +57,19 @@ public static class Extension
 
     public static GameObject FindSiblingWithTag(this Transform transform, string tag)
     {
-        return transform.BottomUpSearch().
-            Where(child => child.CompareTag(tag)).
-            First()?.gameObject;
+
+        var result = transform. BottomUpSearch().
+                                Where(child => child.CompareTag(tag));
+
+        return result.Count() > 0 ? result.First().gameObject : null;
     }
 
     public static T FindSibling<T>(this Transform transform)
     {
-        return transform.BottomUpSearch().
-            Where(child => child.GetComponent<T>() != null).
-            First().GetComponent<T>();
+        var result = transform.BottomUpSearch().
+            Where(child => child.GetComponent<T>() != null);
+
+        return result.Count() > 0 ? result.First().GetComponent<T>() : default(T);
     }
 }
 
