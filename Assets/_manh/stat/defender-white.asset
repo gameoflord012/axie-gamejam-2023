@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5e4a28d2ce0574d93093dffbf7394d, type: 3}
   m_Name: defender-white
   m_EditorClassIdentifier: 
-  maxHealth: 40
+  maxHealth: 100
   maxSpeed: 2.5
-  baseDamage: 10
+  baseDamage: 30
