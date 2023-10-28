@@ -10,7 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1758292696893778374, guid: 608f215431a3879419cd758f1903ae88, type: 3}
       propertyPath: m_Name
-      value: figure-enemy
+      value: enemy-melee
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472322671627176490, guid: 608f215431a3879419cd758f1903ae88, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472322671627176490, guid: 608f215431a3879419cd758f1903ae88, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5629159727412509444, guid: 608f215431a3879419cd758f1903ae88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50,6 +58,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5629159727412509444, guid: 608f215431a3879419cd758f1903ae88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671669967196898827, guid: 608f215431a3879419cd758f1903ae88, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6671669967196898827, guid: 608f215431a3879419cd758f1903ae88, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

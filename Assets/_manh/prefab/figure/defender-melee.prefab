@@ -72,6 +72,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: defender-melee
       objectReference: {fileID: 0}
+    - target: {fileID: 7272816509572443560, guid: a96cd9acbafded5419b2bcf2f6123c34, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272816509572443560, guid: a96cd9acbafded5419b2bcf2f6123c34, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
