@@ -1017,6 +1017,14 @@ PrefabInstance:
       propertyPath: filterTags.Array.data[0]
       value: monster-body-trigger
       objectReference: {fileID: 0}
+    - target: {fileID: 7682139937918133943, guid: 8456cd7826160a94a9459bf1b314a1be, type: 3}
+      propertyPath: obstacle.m_Bits
+      value: 16512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7682139937918133943, guid: 8456cd7826160a94a9459bf1b314a1be, type: 3}
+      propertyPath: searchPerFixedUpdate
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8145192105306945267, guid: 8456cd7826160a94a9459bf1b314a1be, type: 3}
       propertyPath: skeleton
       value: 

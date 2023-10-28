@@ -29,6 +29,9 @@ public class PathFindingComponent : MonoBehaviour, IPathAgent
     void Awake()
     {
         pathFinder = new PathFinder(this);
+
+        pathFinder.ReopenCloseNodes = false;
+
         pathFinder.BoundX = Mathf.CeilToInt(agentMaxDis / step);
         pathFinder.BoundY = Mathf.CeilToInt(agentMaxDis / step);
     }
@@ -103,6 +106,11 @@ public class PathFindingComponent : MonoBehaviour, IPathAgent
     bool Passable(Vector2 A, Vector2 B)
     {
         return Physics2D.Linecast(A, B, obstacle).collider == null;
+    }
+
+    public bool IsPointOnObstacle(Vector2 point)
+    {
+        return Physics2D.CircleCast(point, step, Vector2.zero, 0, obstacle).collider != null;
     }
 
     public byte GetNodeCost(Point node)

@@ -1,15 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Algorithms;
-using Spine.Unity;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Rendering;
-
-using Point = System.Drawing.Point;
 
 [RequireComponent(typeof(PathFindingComponent))]
 public class PathFindingAgent : MonoBehaviour
@@ -83,16 +76,33 @@ public class PathFindingAgent : MonoBehaviour
         {
             yield return new WaitForFixedUpdate();
 
+            if(!this.isActiveAndEnabled)
+            {
+                continue;
+            }
+
             if(IsAgentArriveDestination() || IsValidPathToGo())
             {
                 continue;
             }
 
+            if(pathFinding.IsPointOnObstacle(followPosition))
+            {
+                onAgentClearPath?.Invoke();
+                continue;
+            }
+
             yield return pathFinding.GeneratePath(
                 agentTransform.position,
-                followPosition);
+                followPosition
+                );
 
             pathToGo = pathFinding.GetGenerateResult().ToList();
+
+            if(!IsValidPathToGo())
+            {
+                pathToGo.Clear();
+            }
 
             yield return new WaitForSeconds(rescanNavTime);
         }

@@ -186,6 +186,8 @@ namespace Algorithms
 
             result.Clear();
 
+            Point closetNode = start;
+
             PathFinderNode parentNode;
             bool found  = false;
             int  gridX  = BoundX;
@@ -364,7 +366,13 @@ namespace Algorithms
                     //    mOpen.RemoveAt(foundInOpenIndex);
 
                     //if (foundInOpenIndex == -1)
-                        mOpen.Push(newNode);
+                    mOpen.Push(newNode);
+
+                    if( Mathf.Pow(newNode.X - end.X, 2) + Mathf.Pow(newNode.Y - end.Y, 2) <
+                        Mathf.Pow(closetNode.X - end.X, 2) + Mathf.Pow(closetNode.Y - end.Y, 2))
+                    {
+                        closetNode = new Point(newNode.X, newNode.Y);
+                    }
                 }
 
                 mClose.Add(parentNode);
@@ -398,7 +406,10 @@ namespace Algorithms
                 yield break;
             }
             mStopped = true;
-            yield break;
+
+            //if (closetNode.X == start.X && closetNode.Y == start.Y) yield break;
+
+            //yield return FindPath(start, closetNode, result, stepPerFixedUpdate);
         }
         #endregion
 

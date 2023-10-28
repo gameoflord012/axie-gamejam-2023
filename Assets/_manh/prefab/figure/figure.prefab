@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7b43ad2c897a04983f3a139b66718e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  searchPerFixedUpdate: 50
+  searchPerFixedUpdate: 5
   nearestIfNotFound: 0
   agentRadius: 0
   step: 0.5

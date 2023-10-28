@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using UnityEngine.EventSystems;
 
 public class SelectableManager : MonoBehaviour
 {
@@ -12,32 +8,52 @@ public class SelectableManager : MonoBehaviour
     [SerializeField] LayerMask selectableLayer;
     [SerializeField] bool debug;
 
-    [SerializeField][ReadOnly] GameObject currentSelectedGameObject;
-    [SerializeField][ReadOnly] GameObject previousSlectable = null;
+    [SerializeField][ReadOnly] GameObject primarySelection;
+    [SerializeField][ReadOnly] GameObject secondarySelection = null;
 
-    public GameObject PreviousSlectable { get => previousSlectable; }
-    public GameObject CurrentSelectedGameObject { get => currentSelectedGameObject; }
+    public GameObject PrimarySelection { get => primarySelection; }
+    public GameObject SecondarySelection { get => secondarySelection; }
 
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
-            if (UIHelper.Current().IsPointerOverUIElement()) return;
-
-            var col = Physics2D.Raycast(
-                Extension.GetMouseWorldPos(),
-                Vector2.zero, 0,
-                selectableLayer)
-                .collider;
-
-            previousSlectable = currentSelectedGameObject;
-            currentSelectedGameObject = col ? col.gameObject : null;
-
-            if (previousSlectable != currentSelectedGameObject)
-                onSelectableChanged?.Invoke(currentSelectedGameObject);
-
-            if (debug)
-                Debug.Log(col);
+            var selection = GetSelection();
+            if(selection != primarySelection)
+            {
+                primarySelection = selection;
+                onSelectableChanged?.Invoke(primarySelection);
+            }
         }
+
+        if(Input.GetMouseButtonUp(1))
+        {
+            var selection = GetSelection();
+
+            if (selection != secondarySelection)
+            {
+                secondarySelection = selection;
+                onSelectableChanged?.Invoke(secondarySelection);
+            }
+        }
+    }
+
+    GameObject GetSelection()
+    {
+        if (UIHelper.Current().IsPointerOverUIElement())
+        {
+            return null;
+        }
+
+        var col = Physics2D.Raycast(
+            Extension.GetMouseWorldPos(),
+            Vector2.zero, 0,
+            selectableLayer)
+            .collider;
+
+        if (debug)
+            Debug.Log(col);
+
+        return col ? col.gameObject : null;
     }
 }

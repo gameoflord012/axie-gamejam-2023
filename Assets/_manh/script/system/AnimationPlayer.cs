@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Spine;
 using Spine.Unity;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class AnimationPlayer : MonoBehaviour
