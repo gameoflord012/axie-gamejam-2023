@@ -36,17 +36,19 @@ public class PathFindingAgent : MonoBehaviour
 
     public UnityEvent onAgentClearPath;
 
-    void Start()
+    private void Awake()
     {
         pathFinding = GetComponent<PathFindingComponent>();
-
         followPosition = agentTransform.position;
 
-        if(!FollowTransform && !string.IsNullOrEmpty(targetFollowTag))
+        if (!FollowTransform && !string.IsNullOrEmpty(targetFollowTag))
         {
             FollowTransform = GameObject.FindGameObjectWithTag(targetFollowTag)?.transform;
         }
+    }
 
+    void Start()
+    {
         pathFindingCoroutine = StartCoroutine(FindPathCoroutine());
 
         if (model == null)
