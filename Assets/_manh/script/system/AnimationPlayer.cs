@@ -37,7 +37,7 @@ public class AnimationPlayer : MonoBehaviour
         currentAnimationIndex = 0;
         stopPlayingAnimation = false;
 
-        animationState.ClearTracks();
+        animationState.SetEmptyAnimation(0, 0);
         PlayCurrentAnimation();
     }
 
@@ -67,7 +67,7 @@ public class AnimationPlayer : MonoBehaviour
 
     public void StopAnimation()
     {
-        animationState.ClearTracks();
+        animationState.SetEmptyAnimation(0, 0);
         stopPlayingAnimation = true;
     }
 }

@@ -1093,7 +1093,7 @@ MonoBehaviour:
   searchPerFixedUpdate: 5
   nearestIfNotFound: 0
   agentRadius: 0
-  step: 0.5
+  step: 0.2
   agentMaxDis: 25
   obstacle:
     serializedVersion: 2

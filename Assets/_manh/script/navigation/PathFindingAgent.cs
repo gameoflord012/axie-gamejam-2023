@@ -101,6 +101,7 @@ public class PathFindingAgent : MonoBehaviour
 
             if(!IsValidPathToGo())
             {
+                onAgentClearPath?.Invoke();
                 pathToGo.Clear();
             }
 
@@ -113,7 +114,7 @@ public class PathFindingAgent : MonoBehaviour
         return 
             pathToGo.Count == 0 && IsAgentArriveDestination() ||
             pathToGo.Count > 0 &&
-            pathFinding.CheckPath(pathToGo) && Vector2.Distance(pathToGo.Last(), followPosition) < distanceThreshold;
+            pathFinding.CheckPath() && Vector2.Distance(pathToGo.Last(), followPosition) < distanceThreshold;
     }
 
     private bool IsAgentArriveDestination()
