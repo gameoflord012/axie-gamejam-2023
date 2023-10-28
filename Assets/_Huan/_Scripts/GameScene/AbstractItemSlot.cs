@@ -77,7 +77,7 @@ public abstract class AbstractItemSlot : MonoBehaviour, IPointerEnterHandler, IP
     {
         image.color = notSelectedColor;
         SetItemSize(itemOriSize);
-
+        hoverAlow = true;
     }
 
     protected void SetItemSize(Vector2 value)
@@ -87,7 +87,7 @@ public abstract class AbstractItemSlot : MonoBehaviour, IPointerEnterHandler, IP
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (m_ItemSlotQuery.IsSelectable() == true && hoverAlow)
+        if (m_ItemSlotQuery.IsSelectable() == true && hoverAlow == true)
         {
             SetItemSize(1.1f * glg.cellSize);
         }
