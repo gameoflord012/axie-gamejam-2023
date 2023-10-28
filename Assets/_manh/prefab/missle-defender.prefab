@@ -18,11 +18,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1510139400708115257, guid: cc98a6803207ff546a6ac602f0537e7e, type: 3}
       propertyPath: filterTags.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1510139400708115257, guid: cc98a6803207ff546a6ac602f0537e7e, type: 3}
       propertyPath: filterTags.Array.data[0]
       value: monster-body-trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510139400708115257, guid: cc98a6803207ff546a6ac602f0537e7e, type: 3}
+      propertyPath: filterTags.Array.data[1]
+      value: monster-body-trigger-flying
       objectReference: {fileID: 0}
     - target: {fileID: 1528522567229672181, guid: cc98a6803207ff546a6ac602f0537e7e, type: 3}
       propertyPath: m_Name

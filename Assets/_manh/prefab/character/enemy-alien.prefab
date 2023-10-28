@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7857136833565885740, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_TagString
+      value: monster-body-trigger-flying
+      objectReference: {fileID: 0}
     - target: {fileID: 8362124705874004781, guid: df1906825b44ac2469140ac52260e626, type: 3}
       propertyPath: sequences.Array.size
       value: 3

@@ -10,12 +10,12 @@ public class AnimationPlayer : MonoBehaviour
     [SerializeField] SkeletonAnimation skeleton;
     [SerializeField] string stateName;
     [SerializeField] bool doRepeat = true;
+    [SerializeField] bool stopPlayingAnimation = false;
 
     Spine.AnimationState animationState;
     AnimationLoader animationLoader;
 
     [SerializeField] [ReadOnly] int currentAnimationIndex;
-    [SerializeField] [ReadOnly] bool stopPlayingAnimation = false;
     string[] currentAnimations;
 
     private void Awake()

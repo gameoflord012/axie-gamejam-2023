@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 98422388837170990, guid: cef37892429024243a139694418c5a6b, type: 3}
+      propertyPath: filterTags.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 98422388837170990, guid: cef37892429024243a139694418c5a6b, type: 3}
+      propertyPath: filterTags.Array.data[1]
+      value: monster-body-trigger-flying
+      objectReference: {fileID: 0}
     - target: {fileID: 687616902326995288, guid: cef37892429024243a139694418c5a6b, type: 3}
       propertyPath: damage
       value: 30
