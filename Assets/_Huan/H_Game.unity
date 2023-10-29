@@ -9702,7 +9702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 2023212432}
-  starterCoin: 1000
+  starterCoin: 200
 --- !u!4 &1535873868
 Transform:
   m_ObjectHideFlags: 0
