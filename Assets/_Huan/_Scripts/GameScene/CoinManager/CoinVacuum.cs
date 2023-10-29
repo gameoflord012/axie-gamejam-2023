@@ -26,6 +26,8 @@ public class CoinVacuum : MonoBehaviour
         {
             Coin coin = hit.collider.gameObject.GetComponent<Coin>();
 
+
+
             coin.OnSucked(transform);
             onCoinSuckValue?.Invoke(coin.Value);
 
@@ -33,8 +35,10 @@ public class CoinVacuum : MonoBehaviour
             {
                 lvl.CurrentExp += -coin.Value;
             }
-
-            CoinManager.Instance?.AddCoin(coin.Value);
+            else
+            {
+                CoinManager.Instance?.AddCoin(coin.Value);
+            }
 
             coin.SetValue(0);
         }

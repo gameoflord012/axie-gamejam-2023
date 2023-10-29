@@ -1086,6 +1086,10 @@ PrefabInstance:
       propertyPath: coinsPrefab
       value: 
       objectReference: {fileID: 7905665409153225490, guid: 4ea8df24ed876f545a1baf7ef2a9455f, type: 3}
+    - target: {fileID: 6896292795535497258, guid: 9079d3247ae1b0c4d8884b0946ec41e0, type: 3}
+      propertyPath: negativeDropValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8450159148710781446, guid: 9079d3247ae1b0c4d8884b0946ec41e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class LevelAndExperience : MonoBehaviour
 {
@@ -15,6 +18,9 @@ public class LevelAndExperience : MonoBehaviour
     [SerializeField] [ReadOnly] int currentLevel;
 
     [SerializeField] bool debug = false;
+
+    [SerializeField] Slider slider;
+    [SerializeField] TMP_Text text;
 
     public float CurrentExp
     {
@@ -33,11 +39,14 @@ public class LevelAndExperience : MonoBehaviour
 
     private void Update()
     {
-        if (debug)
-            currentLevel = GetLevel();
+        if(text)
+            text.text = currentLevel.ToString();
+        
+        if(slider)
+            slider.value = GetExtraPercent();
     }
 
-    public float GetExtra()
+    public float GetExtraPercent()
     {
         float exp = currentExp;
         float per = expPerLevel;
@@ -50,7 +59,7 @@ public class LevelAndExperience : MonoBehaviour
             per *= 1 + levelFactor;
         }
 
-        return exp;
+        return exp / per;
     }
 
     public int GetLevel()
@@ -72,5 +81,11 @@ public class LevelAndExperience : MonoBehaviour
     public float GetDropExp()
     {
         return currentExp * dropExpPercentages;
+    }
+
+    private void Start()
+    {
+        if (slider)
+            slider.maxValue = 1;
     }
 }

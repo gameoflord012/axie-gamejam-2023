@@ -182,7 +182,7 @@ MonoBehaviour:
       m_Calls: []
   disable: 0
   delayBeforePlaying: 10
-  gameObjectToDestroy: {fileID: 0}
+  gameObjectToDestroy: {fileID: 7905665409153225490}
 --- !u!1 &7905665409153225490
 GameObject:
   m_ObjectHideFlags: 0

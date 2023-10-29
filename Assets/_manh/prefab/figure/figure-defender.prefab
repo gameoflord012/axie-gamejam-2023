@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 5709633202752704638}
   m_Layer: 0
   m_Name: ExpBar
-  m_TagString: Untagged
+  m_TagString: ExpBarSlider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -914,7 +914,7 @@ GameObject:
   - component: {fileID: 663269641998820411}
   m_Layer: 0
   m_Name: Level
-  m_TagString: Untagged
+  m_TagString: ExBarText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1499,6 +1499,14 @@ PrefabInstance:
       propertyPath: animationName
       value: action/move-forward
       objectReference: {fileID: 0}
+    - target: {fileID: 2846246601568673480, guid: 8456cd7826160a94a9459bf1b314a1be, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 663269641998820411}
+    - target: {fileID: 2846246601568673480, guid: 8456cd7826160a94a9459bf1b314a1be, type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 5709633202752704638}
     - target: {fileID: 2954832895150869454, guid: 8456cd7826160a94a9459bf1b314a1be, type: 3}
       propertyPath: m_Name
       value: figure-defender
