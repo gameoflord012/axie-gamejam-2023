@@ -11,6 +11,25 @@ public class AxiePrivateSpace : MonoBehaviour, IPointerEnterHandler, IPointerExi
     [SerializeField] private Color invisibleColor, axieSelectedColor, itemSelectedColor;
     [SerializeField] private GameObject pointer;
 
+    private void Awake()
+    {
+        SelectableManager.Current().onSelectableChanged.AddListener(DisplayPointer);
+    }
+
+    public void DisplayPointer(GameObject selectedObject)
+    {
+        if (selectedObject == null)
+        {
+            pointer.SetActive(false);
+            return;
+        }
+
+        if (selectedObject.transform.FindSibling<AxiePrivateSpace>() == this)
+            pointer.SetActive(true);
+        else
+            pointer.SetActive(false);
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (ItemPlacingManager.Instance.selectingAxie == false && ItemPlacingManager.Instance.selectingItem == true)

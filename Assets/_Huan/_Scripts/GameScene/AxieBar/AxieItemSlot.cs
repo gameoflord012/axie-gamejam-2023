@@ -29,7 +29,7 @@ public class AxieItemSlot : AbstractItemSlot
     {
         button.interactable = false;
         cooldownSlider.gameObject.SetActive(true);
-        cooldown = m_ItemSlotQuery.GetCooldownDuration();
+        cooldown = (int)((AxieItem)GetItemInSlot()).axie.cooldownTime;
         m_ItemSlotQuery.SetSelectable(false);
 
         StartCoroutine(CooldownCoroutine());
