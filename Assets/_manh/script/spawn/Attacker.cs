@@ -40,10 +40,7 @@ public class Attacker : MonoBehaviour
 
     private void Update()
     {
-        if(debug)
-        {
-            Debug.Log("Attack target num: " + GetAttackTargets().Count());
-        }
+        
     }
 
     public Health GetAttackTarget()
