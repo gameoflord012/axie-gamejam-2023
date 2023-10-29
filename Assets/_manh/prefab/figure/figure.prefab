@@ -231,8 +231,8 @@ MonoBehaviour:
   onLevelChanged:
     m_PersistentCalls:
       m_Calls: []
-  currentExp: 100
-  expPerLevel: 10
+  currentExp: 0
+  expPerLevel: 50
   levelFactor: 0.2
   dropExpPercentages: 0.5
   currentLevel: 0

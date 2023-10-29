@@ -28,7 +28,7 @@ public class DropExp : MonoBehaviour
         if(dropValueRemain > 0)
         {
             var coin = GetNewCoin();
-            coin.SetValue(dropValueRemain * (negativeDropValue ? -1 : 1));
+            coin.SetValue((int) dropValueRemain * (negativeDropValue ? -1 : 1));
 
             coin.transform.localScale *= (float)dropValueRemain / valuePerCoin;
         }
