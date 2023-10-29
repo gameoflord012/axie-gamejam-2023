@@ -82,6 +82,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.57
       objectReference: {fileID: 0}
+    - target: {fileID: 686423615089441035, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 686423615089441035, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 22.7755
+      objectReference: {fileID: 0}
+    - target: {fileID: 686423615089441035, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 18.7424
+      objectReference: {fileID: 0}
+    - target: {fileID: 686423615089441035, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 686423615089441035, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.585
+      objectReference: {fileID: 0}
     - target: {fileID: 1537940363945435508, guid: 9105085023deb884fbc790aae9913033, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -106,6 +126,22 @@ PrefabInstance:
       propertyPath: stat
       value: 
       objectReference: {fileID: 11400000, guid: a18ff51936c6cab4ea0035cf7ee38216, type: 2}
+    - target: {fileID: 2229066322209433405, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -2.9885
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229066322209433405, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229066322209433405, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229066322209433405, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2992704435101310838, guid: 9105085023deb884fbc790aae9913033, type: 3}
       propertyPath: m_Name
       value: defender-buba

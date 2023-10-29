@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterHealthBar : MonoBehaviour
+public class CharacterExpBar : MonoBehaviour
 {
     private ICharacterUIQuery m_CharacterUIQuery;
 
