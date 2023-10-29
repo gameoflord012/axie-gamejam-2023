@@ -4,7 +4,6 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class MissleNav : MonoBehaviour
 {
     public UnityEvent<MissleNav> onMissleReached;
@@ -12,20 +11,25 @@ public class MissleNav : MonoBehaviour
     [SerializeField] Transform followTransform;
     [SerializeField] float travelDuration = 2f;
     [SerializeField][ReadOnly] float timer;
+    [SerializeField] Rigidbody2D rb;
+
+    [SerializeField] float stoppingFriction = 0.7f;
 
     //[SerializeField] float distanceOffset = 1;
     //[SerializeField] float rotationSpeed = 10;
-    Rigidbody2D rb;
 
     bool isReached = false;
     Vector2 startPosition;
     Vector2 followPosition;
 
     public Transform FollowTransform { get => followTransform; set => followTransform = value; }
+    public Vector2 FollowPosition { get => followPosition; set => followPosition = value; }
 
     private void Start()
     {
-        rb = transform.FindSibling<Rigidbody2D>();
+        if(!rb)
+            rb = transform.FindSibling<Rigidbody2D>();
+
         isReached = false;
         startPosition = transform.position;
         timer = 0;
@@ -37,19 +41,22 @@ public class MissleNav : MonoBehaviour
 
         if(timer > travelDuration)
         {
-            if(!isReached)
+            rb.velocity *= (1 - stoppingFriction);
+
+            if (!isReached)
             {
                 isReached = true;
                 onMissleReached?.Invoke(this);
             }
         }
-        else
+        else if(timer < travelDuration && !Mathf.Approximately(timer, travelDuration))
         {
             var dir = followPosition - (Vector2)transform.position;
-            rb.velocity = dir.normalized * (dir.magnitude / (travelDuration - timer));
 
-            timer += Time.fixedDeltaTime;
+            rb.velocity = dir.normalized * (dir.magnitude / (travelDuration - timer));
         }
+
+        timer += Time.fixedDeltaTime;
     }
 
     #region comments

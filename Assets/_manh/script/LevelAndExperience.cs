@@ -12,6 +12,9 @@ public class LevelAndExperience : MonoBehaviour
     [SerializeField] float levelFactor = 0.2f;
 
     [SerializeField] float dropExpPercentages = 0.5f;
+    [SerializeField] [ReadOnly] int currentLevel;
+
+    [SerializeField] bool debug = false;
 
     public float CurrentExp
     {
@@ -23,7 +26,15 @@ public class LevelAndExperience : MonoBehaviour
 
             if (lastLevel != GetLevel())
                 onLevelChanged?.Invoke(GetLevel());
+
+            currentLevel = GetLevel();
         }
+    }
+
+    private void Update()
+    {
+        if (debug)
+            currentLevel = GetLevel();
     }
 
     public int GetLevel()

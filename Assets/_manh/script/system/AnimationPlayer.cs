@@ -34,14 +34,16 @@ public class AnimationPlayer : MonoBehaviour
         currentAnimationIndex = 0;
         stopPlayingAnimation = false;
 
-        animationState.SetEmptyAnimation(0, 0);
+        animationState.SetEmptyAnimation(0, 0.5f);
 
         PlayNextAnimation();
     }
 
     private void HandleAnimationComplete(TrackEntry track)
     {
-        if (track.Animation.Duration == 0) return;
+        if (track.Animation.Name == "<empty>") 
+            return;
+
         if (stopPlayingAnimation) return;
 
         PlayNextAnimation();

@@ -3,6 +3,11 @@ using UnityEngine.Events;
 
 public class SelectableManager : MonoBehaviour
 {
+    public static SelectableManager Current()
+    {
+        return FindAnyObjectByType<SelectableManager>();
+    }
+
     public UnityEvent<GameObject> onSelectableChanged;
 
     [SerializeField] LayerMask selectableLayer;
