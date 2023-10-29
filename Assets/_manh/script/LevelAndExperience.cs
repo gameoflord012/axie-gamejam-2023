@@ -37,6 +37,22 @@ public class LevelAndExperience : MonoBehaviour
             currentLevel = GetLevel();
     }
 
+    public float GetExtra()
+    {
+        float exp = currentExp;
+        float per = expPerLevel;
+        int result = 0;
+
+        while (exp >= per)
+        {
+            result++;
+            exp -= per;
+            per *= 1 + levelFactor;
+        }
+
+        return exp;
+    }
+
     public int GetLevel()
     {
         float exp = currentExp;
