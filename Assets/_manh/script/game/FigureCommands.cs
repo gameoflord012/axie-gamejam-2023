@@ -20,7 +20,11 @@ public class FigureCommands : MonoBehaviour
         var agent = transform.FindSibling<PathFindingAgent>();
         var state = transform.FindSibling<StateController>();
 
-        state.ChangeToState("follow-target");
+        if(state.CurrentStateString != "follow-target")
+        {
+            state.ChangeToState("follow-target");
+        }
+
         agent.MoveTo(dest);
     }
 }

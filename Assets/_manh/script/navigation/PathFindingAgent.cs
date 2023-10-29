@@ -1,15 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Algorithms;
-using Spine.Unity;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Rendering;
-
-using Point = System.Drawing.Point;
 
 [RequireComponent(typeof(PathFindingComponent))]
 public class PathFindingAgent : MonoBehaviour
@@ -83,16 +76,34 @@ public class PathFindingAgent : MonoBehaviour
         {
             yield return new WaitForFixedUpdate();
 
+            if(!this.isActiveAndEnabled)
+            {
+                continue;
+            }
+
             if(IsAgentArriveDestination() || IsValidPathToGo())
             {
                 continue;
             }
 
+            if(pathFinding.IsPointOnObstacle(followPosition))
+            {
+                onAgentClearPath?.Invoke();
+                continue;
+            }
+
             yield return pathFinding.GeneratePath(
                 agentTransform.position,
-                followPosition);
+                followPosition
+                );
 
             pathToGo = pathFinding.GetGenerateResult().ToList();
+
+            if(!IsValidPathToGo())
+            {
+                onAgentClearPath?.Invoke();
+                pathToGo.Clear();
+            }
 
             yield return new WaitForSeconds(rescanNavTime);
         }
@@ -103,7 +114,7 @@ public class PathFindingAgent : MonoBehaviour
         return 
             pathToGo.Count == 0 && IsAgentArriveDestination() ||
             pathToGo.Count > 0 &&
-            pathFinding.CheckPath(pathToGo) && Vector2.Distance(pathToGo.Last(), followPosition) < distanceThreshold;
+            pathFinding.CheckPath() && Vector2.Distance(pathToGo.Last(), followPosition) < distanceThreshold;
     }
 
     private bool IsAgentArriveDestination()

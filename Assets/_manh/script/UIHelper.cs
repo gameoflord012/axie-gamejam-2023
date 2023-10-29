@@ -1,9 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 using UnityEngine.EventSystems;
-using UnityEngine.Rendering;
 
 public class UIHelper : MonoBehaviour
 {

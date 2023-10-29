@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Spine;
 using Spine.Unity;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class AnimationPlayer : MonoBehaviour
@@ -30,27 +27,29 @@ public class AnimationPlayer : MonoBehaviour
 
         currentAnimations = animationLoader.GetAnimation(stateName);
         stopPlayingAnimation = true;
-
-        animationState.Complete += HandleAnimationComplete;
     }
 
     public void PlayAnimation()
     {
-
         currentAnimationIndex = 0;
         stopPlayingAnimation = false;
 
-        animationState.ClearTracks();
-        PlayCurrentAnimation();
+        animationState.SetEmptyAnimation(0, 0);
+
+        PlayNextAnimation();
     }
 
     private void HandleAnimationComplete(TrackEntry track)
     {
+        if (track.Animation.Duration == 0) return;
         if (stopPlayingAnimation) return;
 
-        currentAnimationIndex++;
+        PlayNextAnimation();
+    }
 
-        if(currentAnimationIndex >= currentAnimations.Length)
+    private void PlayNextAnimation()
+    {
+        if (currentAnimationIndex >= currentAnimations.Length)
         {
             if (doRepeat) currentAnimationIndex = 0;
             else
@@ -60,17 +59,15 @@ public class AnimationPlayer : MonoBehaviour
             }
         }
 
-        PlayCurrentAnimation();
-    }
-
-    private void PlayCurrentAnimation()
-    {
         animationState.AddAnimation(0, currentAnimations[currentAnimationIndex], false, 0);
+        currentAnimationIndex++;
+
+        animationState.Complete -= HandleAnimationComplete;
+        animationState.Complete += HandleAnimationComplete;
     }
 
     public void StopAnimation()
     {
-        animationState.ClearTracks();
         stopPlayingAnimation = true;
     }
 }

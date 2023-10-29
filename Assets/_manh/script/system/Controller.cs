@@ -12,17 +12,20 @@ public class Controller : MonoBehaviour
     private void Start()
     {
         selectableManager = GetComponentInChildren<SelectableManager>();
-        selectableManager?.onSelectableChanged.AddListener(MoveAgentToNewPosition);
     }
-
-    private void MoveAgentToNewPosition(GameObject selectable)
+    private void Update()
     {
-        if (selectableManager.CurrentSelectedGameObject == null && selectableManager.PreviousSlectable != null)
+        if(Input.GetMouseButtonDown(1))
         {
-            var command = selectableManager.PreviousSlectable.transform.FindSibling<FigureCommands>();
-            if (command)
+            if(!UIHelper.Current().IsPointerOverUIElement())
             {
-                command.MoveAgent(Extension.GetMouseWorldPos());
+                if (selectableManager.PrimarySelection == null) return;
+
+                var command = selectableManager.PrimarySelection.transform.FindSibling<FigureCommands>();
+                if (command)
+                {
+                    command.MoveAgent(Extension.GetMouseWorldPos());
+                }
             }
         }
     }

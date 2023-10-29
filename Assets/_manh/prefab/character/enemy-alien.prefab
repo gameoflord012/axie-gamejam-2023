@@ -36,6 +36,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.04
       objectReference: {fileID: 0}
+    - target: {fileID: 2635087781996631318, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: onStateEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635087781996631318, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: onStateEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2794108545870304714, guid: df1906825b44ac2469140ac52260e626, type: 3}
       propertyPath: holders.Array.data[3].animations.Array.size
       value: 2
@@ -76,6 +84,10 @@ PrefabInstance:
       propertyPath: delayInSeconds
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3635060112626365103, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: stat
+      value: 
+      objectReference: {fileID: 11400000, guid: 569d334a0ed5b194bb18fa0743e109e4, type: 2}
     - target: {fileID: 5851028624163309431, guid: df1906825b44ac2469140ac52260e626, type: 3}
       propertyPath: _animationName
       value: action/move-forward
@@ -160,6 +172,10 @@ PrefabInstance:
       propertyPath: sequences.Array.data[2]
       value: 
       objectReference: {fileID: 7258457000708344030}
+    - target: {fileID: 9207157717594466299, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: autoPlayAndStopAnimation
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4556124434942514534, guid: df1906825b44ac2469140ac52260e626, type: 3}
     m_RemovedGameObjects: []

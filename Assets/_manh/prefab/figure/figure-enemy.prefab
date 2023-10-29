@@ -722,6 +722,10 @@ PrefabInstance:
       propertyPath: filterTags.Array.data[1]
       value: base-body-trigger
       objectReference: {fileID: 0}
+    - target: {fileID: 7682139937918133943, guid: 8456cd7826160a94a9459bf1b314a1be, type: 3}
+      propertyPath: obstacle.m_Bits
+      value: 8320
+      objectReference: {fileID: 0}
     - target: {fileID: 7944346015541959240, guid: 8456cd7826160a94a9459bf1b314a1be, type: 3}
       propertyPath: damage
       value: 10

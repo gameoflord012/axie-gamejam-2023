@@ -15,6 +15,8 @@ public class StateController : MonoBehaviour
     StateBase currentState;
     [SerializeField] bool debug = false;
 
+    public string CurrentStateString { get => currentStateString; }
+
     private void Start()
     {
         foreach(var state in GetComponentsInChildren<StateBase>())
