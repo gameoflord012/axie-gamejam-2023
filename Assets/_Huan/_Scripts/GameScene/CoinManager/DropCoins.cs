@@ -31,7 +31,7 @@ public class DropCoins : MonoBehaviour
             var coin = GetNewCoin();
             coin.SetValue(dropValueRemain);
 
-            coin.transform.localScale *= (dropValueRemain / valuePerCoin);
+            coin.transform.localScale *= (float)dropValueRemain / valuePerCoin;
         }
     }
 
