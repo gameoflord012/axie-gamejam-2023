@@ -17,7 +17,7 @@ public class CoinVacuum : MonoBehaviour
             Coin coin = hit.collider.gameObject.GetComponent<Coin>();
 
             coin.OnSucked(transform);
-            CoinManager.Instance.AddCoin(coin.Value);
+            CoinManager.Instance?.AddCoin(coin.Value);
             coin.SetValue(0);
         }
 
