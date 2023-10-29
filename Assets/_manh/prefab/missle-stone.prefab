@@ -1,5 +1,82 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7800781218046639430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 381896607893541551}
+  - component: {fileID: 7295949195720320384}
+  - component: {fileID: 3259704511179692633}
+  m_Layer: 0
+  m_Name: sequence
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &381896607893541551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7800781218046639430}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1265006930023558600}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7295949195720320384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7800781218046639430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 527e771bba72a234c9316a2cbcf4f630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onSequenceStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onSequenceStop:
+    m_PersistentCalls:
+      m_Calls: []
+  sequences:
+  - {fileID: 3259704511179692633}
+  playRepeatly: 0
+  isRunning: 0
+  currentSequenceIndex: 0
+--- !u!114 &3259704511179692633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7800781218046639430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc5f4bd0ed4fdb49a4939ac3a0bf29d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onSequenceStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onSequenceStop:
+    m_PersistentCalls:
+      m_Calls: []
+  disable: 0
+  delayBeforePlaying: 5
+  gameObjectToDestroy: {fileID: 3823344743608130597}
 --- !u!1001 &2642404214452903722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8,6 +85,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 451976338941760791, guid: 941776a08dab600418abc550838183df, type: 3}
+      propertyPath: damage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1271294289118970639, guid: 941776a08dab600418abc550838183df, type: 3}
       propertyPath: m_Name
       value: missle-stone
@@ -27,6 +108,18 @@ PrefabInstance:
     - target: {fileID: 3153333601027704455, guid: 941776a08dab600418abc550838183df, type: 3}
       propertyPath: m_Controller
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375977747827338395, guid: 941776a08dab600418abc550838183df, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4591624
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375977747827338395, guid: 941776a08dab600418abc550838183df, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4591624
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375977747827338395, guid: 941776a08dab600418abc550838183df, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4591624
       objectReference: {fileID: 0}
     - target: {fileID: 3829609701344277218, guid: 941776a08dab600418abc550838183df, type: 3}
       propertyPath: m_LocalPosition.x
@@ -72,12 +165,112 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6398041716379882515, guid: 941776a08dab600418abc550838183df, type: 3}
+      propertyPath: onMissleReached.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398041716379882515, guid: 941776a08dab600418abc550838183df, type: 3}
+      propertyPath: onMissleReached.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398041716379882515, guid: 941776a08dab600418abc550838183df, type: 3}
+      propertyPath: onMissleReached.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7295949195720320384}
+    - target: {fileID: 6398041716379882515, guid: 941776a08dab600418abc550838183df, type: 3}
+      propertyPath: onMissleReached.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398041716379882515, guid: 941776a08dab600418abc550838183df, type: 3}
+      propertyPath: onMissleReached.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayAll
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398041716379882515, guid: 941776a08dab600418abc550838183df, type: 3}
+      propertyPath: onMissleReached.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SequencePlayer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398041716379882515, guid: 941776a08dab600418abc550838183df, type: 3}
+      propertyPath: onMissleReached.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7212099511086470897, guid: 941776a08dab600418abc550838183df, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8d6d1c3d8a78c4a7ba0c9a22b0a5b179, type: 3}
+      objectReference: {fileID: 21300000, guid: 1f24e89f0f2c7aa489eb61502bfd8d48, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3829609701344277218, guid: 941776a08dab600418abc550838183df, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 381896607893541551}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1271294289118970639, guid: 941776a08dab600418abc550838183df, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5826189409848378243}
+    - targetCorrespondingSourceObject: {fileID: 4374293416290307654, guid: 941776a08dab600418abc550838183df, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1543019770919559686}
   m_SourcePrefab: {fileID: 100100000, guid: 941776a08dab600418abc550838183df, type: 3}
+--- !u!4 &1265006930023558600 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3829609701344277218, guid: 941776a08dab600418abc550838183df, type: 3}
+  m_PrefabInstance: {fileID: 2642404214452903722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1738152020409684332 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4374293416290307654, guid: 941776a08dab600418abc550838183df, type: 3}
+  m_PrefabInstance: {fileID: 2642404214452903722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1543019770919559686
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738152020409684332}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 909d74b0896b51742802129d31694d2e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &3823344743608130597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1271294289118970639, guid: 941776a08dab600418abc550838183df, type: 3}
+  m_PrefabInstance: {fileID: 2642404214452903722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5826189409848378243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823344743608130597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce4a7ff2e2ec158488e17a7e50989366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7295949195720320384}
+        m_TargetAssemblyTypeName: SequencePlayer, Assembly-CSharp
+        m_MethodName: PlayAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
