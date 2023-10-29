@@ -107,6 +107,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.34
       objectReference: {fileID: 0}
+    - target: {fileID: 2083692604261925936, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: stat
+      value: 
+      objectReference: {fileID: 11400000, guid: 34bf84ba998c0c24ba8338cce29ea726, type: 2}
     - target: {fileID: 2992704435101310838, guid: 9105085023deb884fbc790aae9913033, type: 3}
       propertyPath: m_Name
       value: defender-stone
