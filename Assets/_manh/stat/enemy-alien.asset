@@ -15,3 +15,6 @@ MonoBehaviour:
   maxHealth: 100
   maxSpeed: 1
   baseDamage: 10
+  maxHealthCofficient: 0.5
+  baseDamageCofficient: 5
+  maxSpeedCofficient: 0.05

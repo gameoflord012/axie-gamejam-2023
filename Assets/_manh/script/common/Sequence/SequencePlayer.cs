@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class SequencePlayer : MonoBehaviour
 {
+    public UnityEvent onSequenceStart;
     public UnityEvent onSequenceStop;
 
     [SerializeField] BaseSequence[] sequences;
@@ -20,6 +21,7 @@ public class SequencePlayer : MonoBehaviour
     {
         if (isRunning) return;
         runningCoroutine = StartCoroutine(PlayRepeatlyCoroutine());
+        onSequenceStart?.Invoke();
     }
 
     public void StopAll()

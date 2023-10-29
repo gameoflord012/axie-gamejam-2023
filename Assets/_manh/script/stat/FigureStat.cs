@@ -28,8 +28,8 @@ public class FigureStat : MonoBehaviour
 
     void UpdateStats(int level)
     {
-        health.MaxHealth = (uint)(stat.maxHealth * level);
-        attacker.Damage = (uint)(stat.baseDamage * level);
-        moveAgent.Speed = stat.maxSpeed * level;
+        health.MaxHealth = (uint)(stat.maxHealth + (float)stat.maxHealth * level * stat.maxHealthCofficient);
+        attacker.Damage = (uint)(stat.baseDamage + (float)stat.baseDamage * level * stat.baseDamageCofficient);
+        moveAgent.Speed = stat.maxSpeed + (float)stat.maxSpeed * level * stat.maxSpeedCofficient;
     }
 }
