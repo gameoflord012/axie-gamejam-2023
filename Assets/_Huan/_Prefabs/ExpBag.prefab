@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8450159148710781446}
   - component: {fileID: 6896292795535497258}
   m_Layer: 0
-  m_Name: CoinBag
+  m_Name: ExpBag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3f37ebd5eade544a4347edf26a5fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsPrefab: {fileID: 7905665409153225490, guid: fb5403ff277a39248b4545e4d25bf88e, type: 3}
+  coinsPrefab: {fileID: 7905665409153225490, guid: 4ea8df24ed876f545a1baf7ef2a9455f, type: 3}
   valuePerCoin: 10
   dropValue: 0
   dropRange: 1
