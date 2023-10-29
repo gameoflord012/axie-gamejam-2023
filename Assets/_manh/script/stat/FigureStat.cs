@@ -10,6 +10,7 @@ public class FigureStat : MonoBehaviour
     Attacker attacker;
     PathFindingAgent moveAgent;
     LevelAndExperience level;
+    DropCoins coinDrop;
 
     private void Start()
     {
@@ -20,10 +21,15 @@ public class FigureStat : MonoBehaviour
             moveAgent = transform.FindSibling<PathFindingAgent>();
 
             level = transform.FindSibling<LevelAndExperience>();
+
+            coinDrop = transform.FindSibling<DropCoins>();
         }
 
+        level.CurrentExp = stat.initialFigureExp;
         level.onLevelChanged.AddListener(UpdateStats);
         UpdateStats(level.GetLevel());
+
+        coinDrop.DropValue = stat.coinDropValue;
     }
 
     void UpdateStats(int level)

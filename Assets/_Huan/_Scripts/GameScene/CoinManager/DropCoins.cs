@@ -10,6 +10,8 @@ public class DropCoins : MonoBehaviour
     [SerializeField] private int dropValue;
     [SerializeField] private float dropRange = 1f;
 
+    public int DropValue { get => dropValue; set => dropValue = value; }
+
     public void SetCoin(int value)
     {
         dropValue = value;
