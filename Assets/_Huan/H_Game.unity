@@ -6321,7 +6321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1af52bed82871a47a951f0e28bfeef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  privateSpacePrefab: {fileID: 6717252001108773083, guid: e7d174dc245ef2a4e89aa6c14afdd658, type: 3}
 --- !u!224 &1020563463 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5236219795852932139, guid: cac61541f44e41f4ba6fdb50db23cbcb, type: 3}
@@ -7275,11 +7274,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1241163216654846379, guid: 620483e855ca86d45a6d69dce214feb5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.0823083
+      value: -10.69
       objectReference: {fileID: 0}
     - target: {fileID: 1241163216654846379, guid: 620483e855ca86d45a6d69dce214feb5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.3574548
+      value: -1.96
       objectReference: {fileID: 0}
     - target: {fileID: 1241163216654846379, guid: 620483e855ca86d45a6d69dce214feb5, type: 3}
       propertyPath: m_LocalPosition.z
