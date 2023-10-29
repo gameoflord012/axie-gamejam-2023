@@ -11,6 +11,7 @@ public class StateBase : MonoBehaviour
     [SerializeField] bool includeInAntState = true;
 
     [SerializeField] bool autoPlayAndStopSequence = true;
+    [SerializeField] bool autoPlayAndStopAnimation = true;
 
     SequencePlayer[] sequences = { };
     AnimationPlayer animationPlayer;
@@ -39,7 +40,8 @@ public class StateBase : MonoBehaviour
             }
         }
 
-        animationPlayer.PlayAnimation();
+        if(autoPlayAndStopAnimation)
+            animationPlayer.PlayAnimation();
 
         StateEnter();
         onStateEnter?.Invoke();
@@ -55,7 +57,8 @@ public class StateBase : MonoBehaviour
             }
         }
 
-        animationPlayer.StopAnimation();
+        if(autoPlayAndStopAnimation)
+            animationPlayer.StopAnimation();
 
         StateExit();
         onStateExit?.Invoke();

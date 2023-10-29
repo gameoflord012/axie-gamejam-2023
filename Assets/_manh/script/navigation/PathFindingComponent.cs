@@ -43,14 +43,14 @@ public class PathFindingComponent : MonoBehaviour, IPathAgent
         result.AddRange(pathFindingResult.Select(node => GridToWorld(new Vector2Int(node.X, node.Y))));
         result.Add(lastEnd);
 
-        //for (int idx = 1; idx < result.Count - 1; idx++)
-        //{
-        //    while (idx < result.Count - 1 &&
-        //        Passable(result[idx - 1], result[idx + 1]))
-        //    {
-        //        result.RemoveAt(idx);
-        //    }
-        //}
+        for (int idx = 1; idx < result.Count - 1; idx++)
+        {
+            while (idx < result.Count - 1 &&
+                Passable(result[idx - 1], result[idx + 1]))
+            {
+                result.RemoveAt(idx);
+            }
+        }
 
         return result.ToArray();
     }
