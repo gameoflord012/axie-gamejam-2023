@@ -269,6 +269,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 647125122774459732, guid: 9f8f07800996b8d4ebbc06d9ab0a961e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2171441798859554625, guid: 9f8f07800996b8d4ebbc06d9ab0a961e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.65
@@ -313,14 +317,6 @@ PrefabInstance:
       propertyPath: _animationName
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 2763699556257355141, guid: 9f8f07800996b8d4ebbc06d9ab0a961e, type: 3}
-      propertyPath: debug
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3498224511306867601, guid: 9f8f07800996b8d4ebbc06d9ab0a961e, type: 3}
-      propertyPath: autoPlayAndStopAnimation
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5054366105130825861, guid: 9f8f07800996b8d4ebbc06d9ab0a961e, type: 3}
       propertyPath: currentExp
       value: 10
@@ -341,26 +337,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7772056139022586236, guid: 9f8f07800996b8d4ebbc06d9ab0a961e, type: 3}
-      propertyPath: autoPlayAndStopAnimation
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7772056139022586236, guid: 9f8f07800996b8d4ebbc06d9ab0a961e, type: 3}
-      propertyPath: onStateEnter.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7772056139022586236, guid: 9f8f07800996b8d4ebbc06d9ab0a961e, type: 3}
-      propertyPath: onStateEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7941393004271778582, guid: 9f8f07800996b8d4ebbc06d9ab0a961e, type: 3}
-      propertyPath: disable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9022968900395824837, guid: 9f8f07800996b8d4ebbc06d9ab0a961e, type: 3}
-      propertyPath: stat
-      value: 
-      objectReference: {fileID: 11400000, guid: 569d334a0ed5b194bb18fa0743e109e4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

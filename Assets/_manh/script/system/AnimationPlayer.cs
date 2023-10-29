@@ -68,7 +68,6 @@ public class AnimationPlayer : MonoBehaviour
 
     public void StopAnimation()
     {
-        animationState.SetEmptyAnimation(0, 0);
         stopPlayingAnimation = true;
     }
 }
