@@ -1,12 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CoinVacuum : MonoBehaviour
 {
+    public UnityEvent<int> onCoinSuckValue;
+
     [SerializeField] private float radius;
     [SerializeField] private float innerRadius;
     [SerializeField] private LayerMask coinLayer;
+
+    LevelAndExperience lvl;
+
+    private void Start()
+    {
+        lvl = transform.FindSibling<LevelAndExperience>();
+    }
 
     private void Update()
     {
@@ -17,7 +27,15 @@ public class CoinVacuum : MonoBehaviour
             Coin coin = hit.collider.gameObject.GetComponent<Coin>();
 
             coin.OnSucked(transform);
+            onCoinSuckValue?.Invoke(coin.Value);
+
+            if (coin.Value < 0)
+            {
+                lvl.CurrentExp += -coin.Value;
+            }
+
             CoinManager.Instance?.AddCoin(coin.Value);
+
             coin.SetValue(0);
         }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-public class DropCoins : MonoBehaviour
+public class DropExp : MonoBehaviour
 {
     [SerializeField] private GameObject coinsPrefab;
     [SerializeField] private int valuePerCoin = 10;
@@ -11,16 +11,11 @@ public class DropCoins : MonoBehaviour
     [SerializeField] private float dropRange = 1f;
     [SerializeField] private bool negativeDropValue = false;
 
-    public int DropValue { get => dropValue; set => dropValue = value; }
-
-    public void SetCoin(int value)
-    {
-        dropValue = value;
-    }
 
     public void CoinsDrop()
     {
-        var dropValueRemain = dropValue;
+        var dropValueRemain = transform.FindSibling<LevelAndExperience>().GetDropExp();
+
         while (dropValueRemain >= valuePerCoin * 1.5)
         {
             var coin = GetNewCoin();
