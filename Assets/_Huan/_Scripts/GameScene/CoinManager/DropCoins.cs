@@ -1,21 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class DropCoins : MonoBehaviour
 {
     [SerializeField] private GameObject coinsPrefab;
-    [SerializeField] private int count;
+    [SerializeField] private int valuePerCoin = 10;
+    [SerializeField] private int dropValue;
+    [SerializeField] private float dropRange = 1f;
 
     public void SetCoin(int value)
     {
-        count = value;
+        dropValue = value;
     }
 
     public void CoinsDrop()
     {
-        Coin newCoin = Instantiate(coinsPrefab, transform.position, Quaternion.identity).GetComponent<Coin>();
+        var dropValueRemain = dropValue;
+        while (dropValueRemain >= valuePerCoin * 1.5)
+        {
+            var coin = GetNewCoin();
+            coin.SetValue(valuePerCoin);
 
-        newCoin.SetValue(count);
+            dropValueRemain -= valuePerCoin;
+        }
+
+        if(dropValueRemain > 0)
+        {
+            var coin = GetNewCoin();
+            coin.SetValue(dropValueRemain);
+
+            coin.transform.localScale *= (dropValueRemain / valuePerCoin);
+        }
+    }
+
+    Coin GetNewCoin()
+    {
+        var coin = Instantiate(coinsPrefab, 
+            transform.position, 
+            Quaternion.identity).GetComponent<Coin>();
+
+        var nav = coin.transform.FindSibling<MissleNav>();
+
+        nav.FollowPosition = (Vector2)transform.position + new Vector2(
+             Random.Range(-dropRange, dropRange),
+            Random.Range(-dropRange, dropRange));
+
+        return coin;
     }
 }
