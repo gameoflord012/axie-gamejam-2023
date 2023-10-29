@@ -11,6 +11,7 @@ public class ItemPlacingManager : MonoBehaviour
     [HideInInspector] public AbstractItem selectedItem = null;
     [HideInInspector] public bool selectingAxie = false;
     [HideInInspector] public bool selectingItem = false;
+    [SerializeField] private GameObject axiePlacingField;
 
     private void Awake()
     {
@@ -29,6 +30,9 @@ public class ItemPlacingManager : MonoBehaviour
             selectingItem = false;
 
         selectingAxie = isAxie;
+
+        if (axiePlacingField != null && selectingAxie == true)
+            axiePlacingField.SetActive(true);
     }
 
     public void DeselectAll()
@@ -40,5 +44,10 @@ public class ItemPlacingManager : MonoBehaviour
 
         selectingAxie = false;
         selectingItem = false;
+
+        selectedItem = null;
+
+        if (axiePlacingField != null)
+            axiePlacingField.SetActive(false);
     }
 }

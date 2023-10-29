@@ -18,6 +18,7 @@ public abstract class AbstractItemSlot : MonoBehaviour
     [SerializeField] protected Slider cooldownSlider;
     protected int cooldown = 0;
     protected Hovering hoverChild;
+    protected bool selecting = false;
 
     protected void Awake()
     {
@@ -69,6 +70,7 @@ public abstract class AbstractItemSlot : MonoBehaviour
         image.color = selectedColor;
         hoverChild.ForceHoverIn();
         hoverChild.SetHover(false);
+        selecting = true;
     }
 
     internal void Deselect()
@@ -76,5 +78,6 @@ public abstract class AbstractItemSlot : MonoBehaviour
         image.color = notSelectedColor;
         hoverChild.ForceHoverOut();
         hoverChild.SetHover(true);
+        selecting = false;
     }
 }

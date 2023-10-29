@@ -20,6 +20,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3b924ca2ce0b14f0c93c96bd032e95eb, type: 2}
+    - target: {fileID: 2552892084972920469, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552892084972920469, guid: df1906825b44ac2469140ac52260e626, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 34.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2628078462267315045, guid: df1906825b44ac2469140ac52260e626, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.3005

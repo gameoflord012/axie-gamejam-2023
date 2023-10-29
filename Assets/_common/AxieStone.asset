@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e245fc242f4b0f64caf7e47e99ddf0f0, type: 3}
-  m_Name: AxieWhite
+  m_Name: AxieStone
   m_EditorClassIdentifier: 
-  name: white
-  placementCost: 80
-  cooldownTime: 8
+  name: stone
+  placementCost: 120
+  cooldownTime: 10
   id: 0
-  prefab: {fileID: 79854730225768416, guid: cbe285b2d79b5de4fab9b1a7db2ba6d1, type: 3}
-  sprite: {fileID: 21300000, guid: 752a1012e7d63b44aa0cff7af7224682, type: 3}
+  prefab: {fileID: 5134385360844970857, guid: 7209c74f4a0fba64eb824799c435da53, type: 3}
+  sprite: {fileID: 21300000, guid: 51af78a2e4ff6664fb397800e25d7b84, type: 3}

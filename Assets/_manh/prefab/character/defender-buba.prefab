@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 1899034336606633670, guid: 9105085023deb884fbc790aae9913033, type: 3}
+      propertyPath: pointer
+      value: 
+      objectReference: {fileID: 6645424608341384246}
     - target: {fileID: 2083692604261925936, guid: 9105085023deb884fbc790aae9913033, type: 3}
       propertyPath: stat
       value: 
@@ -113,3 +117,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9105085023deb884fbc790aae9913033, type: 3}
+--- !u!1 &6645424608341384246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3670560017184036905, guid: 9105085023deb884fbc790aae9913033, type: 3}
+  m_PrefabInstance: {fileID: 7982974055929234463}
+  m_PrefabAsset: {fileID: 0}

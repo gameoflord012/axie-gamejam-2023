@@ -18,7 +18,10 @@ public class AxieItemSlot : AbstractItemSlot
     {
         if (m_ItemSlotQuery.IsSelectable() == true)
         {
-            ItemPlacingManager.Instance.SelectItemSlot(this, true);
+            if (selecting == false)
+                ItemPlacingManager.Instance.SelectItemSlot(this, true);
+            else
+                ItemPlacingManager.Instance.DeselectAll();
         }
     }
 
