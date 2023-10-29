@@ -13,7 +13,10 @@ public class ItemSlot : AbstractItemSlot
     {
         if (m_ItemSlotQuery.IsSelectable() == true)
         {
-            ItemPlacingManager.Instance.SelectItemSlot(this, false);
+            if (selecting == false)
+                ItemPlacingManager.Instance.SelectItemSlot(this, false);
+            else
+                ItemPlacingManager.Instance.DeselectAll();
         }
     }
 

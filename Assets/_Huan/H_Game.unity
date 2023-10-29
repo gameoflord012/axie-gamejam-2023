@@ -3786,6 +3786,7 @@ MonoBehaviour:
   selectedItem: {fileID: 0}
   selectingAxie: 0
   selectingItem: 0
+  axiePlacingField: {fileID: 1828000902}
 --- !u!4 &528491643
 Transform:
   m_ObjectHideFlags: 0
@@ -4775,7 +4776,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 3.255671, y: 3.6140566}
+    - - {x: 3.514471, y: 3.5062237}
+      - {x: 1.4551854, y: 5.131521}
       - {x: 1.1063342, y: 5.406853}
       - {x: -7.009999, y: 5.42191}
       - {x: -7.0593987, y: 0.7161188}

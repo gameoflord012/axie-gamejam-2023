@@ -46,6 +46,7 @@ public class TimelineManager : MonoBehaviour
 
     private void OnGameOver(bool victory)
     {
+        Time.timeScale = 0f;
         CameraShake.Instance.SetShakable(false);
         gameOverBoard.SetActive(true);
         gameplayCanvas.SetActive(false);
@@ -54,13 +55,11 @@ public class TimelineManager : MonoBehaviour
         {
             gameOverTitle.SetActive(false);
             victoryTitle.SetActive(true);
-            Debug.Log("Victory!");
         }
         else
         {
             victoryTitle.SetActive(false);
             gameOverTitle.SetActive(true);
-            Debug.Log("Game over!");
         }
     }
 }
