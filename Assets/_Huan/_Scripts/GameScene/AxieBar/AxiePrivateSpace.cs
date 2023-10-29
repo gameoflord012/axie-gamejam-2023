@@ -9,6 +9,7 @@ public class AxiePrivateSpace : MonoBehaviour, IPointerEnterHandler, IPointerExi
     [SerializeField] private Canvas canvas;
     [SerializeField] private Image image;
     [SerializeField] private Color invisibleColor, axieSelectedColor, itemSelectedColor;
+    [SerializeField] private GameObject pointer;
 
     public void OnPointerClick(PointerEventData eventData)
     {

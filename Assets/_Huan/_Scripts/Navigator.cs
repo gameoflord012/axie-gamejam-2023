@@ -30,6 +30,7 @@ public class Navigator : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0f;
+        CameraShake.Instance.Shake(0, 0);
     }
 
     public void ContinueGame()
