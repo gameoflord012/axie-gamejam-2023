@@ -9,6 +9,7 @@ public class AxieGround : MonoBehaviour
 
     public void OnButtonClicked()
     {
+        Debug.Log("l");
         if (ItemPlacingManager.Instance.selectingAxie == true && ItemPlacingManager.Instance.selectedItem != null)
         {
             ItemPlacingManager.Instance.selectedItem.PlaceItem(Camera.main.ScreenToWorldPoint(Input.mousePosition));
