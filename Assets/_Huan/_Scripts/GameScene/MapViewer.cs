@@ -18,7 +18,7 @@ public class MapViewer : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (eventData.button == PointerEventData.InputButton.Right)
+        if (eventData.button == PointerEventData.InputButton.Middle)
         {
             Vector3 distance = originalMousePos - mainCam.ScreenToWorldPoint(Input.mousePosition);
             Vector3 newPos = mainCam.transform.position + distance;

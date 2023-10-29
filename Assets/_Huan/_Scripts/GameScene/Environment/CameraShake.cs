@@ -14,6 +14,7 @@ public class CameraShake : MonoBehaviour
 
     private Vector3 camOriPosition;
     private bool shaked = false;
+    private bool shakeDisabled = false;
 
     private void Awake()
     {
@@ -27,6 +28,9 @@ public class CameraShake : MonoBehaviour
 
     private void Update()
     {
+        if (shakeDisabled == true)
+            return;
+
         if (shaked == false)
             return;
 
@@ -50,5 +54,10 @@ public class CameraShake : MonoBehaviour
         shakeStrength = str;
 
         shaked = true;
+    }
+
+    public void SetShakable(bool value)
+    {
+        shakeDisabled = !value;
     }
 }

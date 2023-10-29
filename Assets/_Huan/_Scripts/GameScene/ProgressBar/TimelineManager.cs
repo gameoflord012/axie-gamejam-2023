@@ -7,6 +7,12 @@ public class TimelineManager : MonoBehaviour
 {
     public static TimelineManager Instance { get; private set; }
 
+    [SerializeField] private GameObject gameOverBoard;
+    [SerializeField] private GameObject victoryTitle;
+    [SerializeField] private GameObject gameOverTitle;
+    [SerializeField] private GameObject gameplayCanvas;
+
+
     [SerializeField] private Slider slider;
     [SerializeField] private float maxTime = 180;
     private float currentTime;
@@ -40,12 +46,20 @@ public class TimelineManager : MonoBehaviour
 
     private void OnGameOver(bool victory)
     {
+        CameraShake.Instance.SetShakable(false);
+        gameOverBoard.SetActive(true);
+        gameplayCanvas.SetActive(false);
+
         if (victory == true)
         {
+            gameOverTitle.SetActive(false);
+            victoryTitle.SetActive(true);
             Debug.Log("Victory!");
         }
         else
         {
+            victoryTitle.SetActive(false);
+            gameOverTitle.SetActive(true);
             Debug.Log("Game over!");
         }
     }
