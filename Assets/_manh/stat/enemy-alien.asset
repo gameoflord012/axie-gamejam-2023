@@ -18,3 +18,5 @@ MonoBehaviour:
   maxHealthCofficient: 0.5
   baseDamageCofficient: 5
   maxSpeedCofficient: 0.05
+  coinDropValue: 50
+  initialFigureExp: 100

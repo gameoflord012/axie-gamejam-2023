@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: defender-stone
   m_EditorClassIdentifier: 
   maxHealth: 100
-  maxSpeed: 2
+  maxSpeed: 0.7
   baseDamage: 20
   maxHealthCofficient: 0.5
   baseDamageCofficient: 0.5
   maxSpeedCofficient: 0.05
-  coinDropValue: 0
-  initialFigureExp: 0
+  coinDropValue: 50
+  initialFigureExp: 100
