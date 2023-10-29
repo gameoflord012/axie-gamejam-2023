@@ -42,6 +42,7 @@ public class ItemSlot : AbstractItemSlot
         {
             priceText.color = Color.red;
             Deselect();
+            ItemPlacingManager.Instance.selectingItem = false;
             m_ItemSlotQuery.SetSelectable(false);
             button.interactable = false;
         }
